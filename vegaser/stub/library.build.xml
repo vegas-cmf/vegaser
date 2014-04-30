@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Vegas CMF" default="build">
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build">
+        <echo msg="Making src directory" />
+        <mkdir dir="./src" />
+
+        <echo msg="Making tests directory" />
+        <mkdir dir="./tests" />
+
+        <echo msg="Making fixtures directory" />
+        <mkdir dir="./tests/fixtures" />
+
+        <echo msg="Downloading composer" />
+        <exec command="curl -sS https://getcomposer.org/installer | php" />
+
+        <copy verbose="false" file="./stub/LICENCE" tofile="./LICENCE" overwrite="true" />
+        <copy verbose="false" file="./stub/library/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
+        <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.php" overwrite="true" />
+
+        <input
+                message="Enter a name of library (eg. vegas-cmf/assets):"
+                propertyName="config.name"/>
+
+        <input
+                message="Enter a description of library"
+                defaultValue="Vegas CMF Library"
+                propertyName="config.description"/>
+
+        <input
+                message="Enter a namespace of library (eg. Vegas\\Assets\\):"
+                propertyName="config.namespace"/>
+
+        <input
+                message="Enter your name:"
+                defaultValue="Amsterdam Standard Vegas Team"
+                propertyName="config.author_name" />
+
+        <input
+                message="Enter your email:"
+                defaultValue="vegas@amsterdam-standard.pl"
+                propertyName="config.author_email" />
+
+        <echo msg="Generating composer configuration" />
+        <copy verbose="false" file="./stub/library/composer.json" tofile="./composer.json" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                    <token key="config.name" value="${config.name}" />
+                    <token key="config.description" value="${config.description}" />
+                    <token key="config.author_name" value="${config.author_name}" />
+                    <token key="config.author_email" value="${config.author_email}" />
+                    <token key="config.namespace" value="${config.namespace}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <echo msg="Generating phpunit configuration" />
+        <copy verbose="false" file="./stub/library/phpunit.xml.dist" tofile="./phpunit.xml.dist" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                    <token key="config.description" value="${config.description}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <echo msg="Generating readme file" />
+        <copy verbose="false" file="./stub/README.md" tofile="./README.md" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                    <token key="config.description" value="${config.description}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <mkdir dir="./vendor" mode="0777" />
+        <echo msg="Installing vendors" />
+        <exec level="verbose" command="php composer.phar install" />
+
+        <echo msg="Cleaning up..." />
+        <exec command="rm build.xml" />
+        <exec command="rm -rf stub" />
+
+        <echo msg="********************************************************" />
+        <echo msg="Everything is done." />
+        <echo msg="If you experienced any problems during installing vendors, try run `php composer.phar install` once again" />
+        <echo msg="Enjoy using Vegas CMF!" />
+    </target>
+</project>
