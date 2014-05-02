@@ -15,10 +15,12 @@ We highly recommend using at least PHP in version 5.4
 
 2. Phalcon extension
 The **Vegas CMF** based on the **Phalcon** framework, which works as php extension.
+
 Check http://docs.phalconphp.com/en/latest/reference/install.html for more information.
 
 3. Phing
 To start using **vegaser** tool you have to install **Phing** tool in your system.
+
 You can simply install it, using **PEAR installer** :
 ```
 #!shell
@@ -32,6 +34,7 @@ Check http://www.phing.info/docs/guide/trunk/ch03s03.html for more information.
 Building project
 ================
 Before you run **vegaser** tool, determine if you are going to create repository for your project.
+
 If so, just clone your repo and enter the directory where you will create new project.
 
 Use the following command for start creating new project based on **Vegas CMF**:
@@ -64,6 +67,7 @@ php -S 0.0.0.0:8080 -t public/ public/index.php
 Building library
 ================
 Before you run **vegaser** tool, determine if you are going to create repository for your **Vegas CMF** library.
+
 If so, just clone your repo and enter the directory where you will create new library.
 
 Use the following command for start creating new library for **Vegas CMF**:
@@ -91,5 +95,6 @@ When the **vegaser** command will be ended successfully, then you can run tests 
 ./vendor/bin/phpunit
 ```
 
-The source code of your library should be placed within **src** directory, eg. ./src/Foo/Bar.php
+The source code of your library should be placed within **src** directory, eg. ./src/Foo/Bar.php.
+
 The tests should be placed within **tests** directory, eg. ./tests/Foo/BarTest.php
