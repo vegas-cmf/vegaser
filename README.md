@@ -15,12 +15,10 @@ We highly recommend using at least PHP in version 5.4
 
 2. Phalcon extension
 The **Vegas CMF** based on the **Phalcon** framework, which works as php extension.
-
 Check http://docs.phalconphp.com/en/latest/reference/install.html for more information.
 
 3. Phing
 To start using **vegaser** tool you have to install **Phing** tool in your system.
-
 You can simply install it, using **PEAR installer** :
 ```
 #!shell
@@ -34,7 +32,6 @@ Check http://www.phing.info/docs/guide/trunk/ch03s03.html for more information.
 Building project
 ================
 Before you run **vegaser** tool, determine if you are going to create repository for your project.
-
 If so, just clone your repo and enter the directory where you will create new project.
 
 Use the following command for start creating new project based on **Vegas CMF**:
