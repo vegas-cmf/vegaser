@@ -11,11 +11,11 @@ Vegas CMF Project builder
 Requirements
 ============
 1. PHP >= 5.4
-We highly recommend using at least PHP in version 5.4
+We highly recommend using PHP at least in version 5.4
 
 2. Phalcon extension
-The **Vegas CMF** based on the **Phalcon** framework, which works as php extension.
-Check http://docs.phalconphp.com/en/latest/reference/install.html for more information.
+The **Vegas CMF** based on the **Phalcon** framework (in version 1.3), which works as php extension.
+Check [http://docs.phalconphp.com/en/latest/reference/install.html](http://docs.phalconphp.com/en/latest/reference/install.html) for more information.
 
 3. Phing
 To start using **vegaser** tool you have to install **Phing** tool in your system.
@@ -26,13 +26,15 @@ $> pear channel-discover pear.phing.info
 $> pear install phing/phing
 ```
 
-Check http://www.phing.info/docs/guide/trunk/ch03s03.html for more information.
+Check [http://www.phing.info/docs/guide/trunk/ch03s03.html](http://www.phing.info/docs/guide/trunk/ch03s03.html) for more information.
 
 
 Building project
 ================
 Before you run **vegaser** tool, determine if you are going to create repository for your project.
 If so, just clone your repo and enter the directory where you will create new project.
+
+Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
 
 Use the following command for start creating new project based on **Vegas CMF**:
 
