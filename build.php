@@ -1,4 +1,7 @@
 <?php
+//script for building .phar file
+//php build.php
+
 $srcRoot = "./vegaser/src";
 $buildRoot = "./build";
 

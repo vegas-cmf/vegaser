@@ -12,15 +12,32 @@
 
 namespace Vegaser;
 
+/**
+ * Class Console
+ * @package Vegaser
+ */
 class Console
 {
+    /**
+     * Array of arguments for command
+     *
+     * @var array
+     */
     protected $arguments;
 
+    /**
+     * @param $arguments
+     */
     public function __construct($arguments)
     {
         $this->parseArguments($arguments);
     }
 
+    /**
+     * Parses command arguments
+     *
+     * @param $arguments
+     */
     private function parseArguments($arguments)
     {
         //2nd argument is a name of command
@@ -32,12 +49,21 @@ class Console
         }
     }
 
+    /**
+     * Handles commands
+     */
     public function handle()
     {
         $command = $this->resolveCommandName($this->arguments['name']);
         $command->run($this->arguments['args']);
     }
 
+    /**
+     * Checks command existing, if yes returns new instance of command, otherwise throws exception
+     *
+     * @param $commandName
+     * @return object
+     */
     private function resolveCommandName($commandName)
     {
         $commandClassName = ucfirst($this->camelize(str_replace('-', '_', $commandName)));
@@ -50,18 +76,15 @@ class Console
         }
     }
 
-
+    /**
+     * Convert command name to class name
+     *
+     * @param $str
+     * @return string
+     */
     private function camelize($str)
     {
-        return lcfirst(
-            implode(
-                '',
-                array_map(
-                    'ucfirst',
-                    array_map(
-                        'strtolower',
-                        explode(
-                            '_', $str)))));
+        return lcfirst(implode('', array_map( 'ucfirst', array_map( 'strtolower', explode('_', $str)))));
     }
 }
  

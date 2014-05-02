@@ -6,6 +6,9 @@
 
 require_once 'PEAR/Registry.php';
 
+/**
+ * Class AppManager
+ */
 class AppManager
 {
     private static $intro = <<<TEXT
@@ -31,7 +34,11 @@ Available commands:
 
 TEXT;
 
-
+    /**
+     * Handle commands
+     *
+     * @param $arguments
+     */
     public static function run($arguments) {
         self::checkExtensions();
 
@@ -43,6 +50,9 @@ TEXT;
         }
     }
 
+    /**
+     * Display console help
+     */
     private static function displayHelp()
     {
         echo str_repeat(PHP_EOL, 2);
@@ -52,6 +62,9 @@ TEXT;
         echo str_repeat(PHP_EOL, 2);
     }
 
+    /**
+     * Checks if required tools are installed
+     */
     private static function checkExtensions()
     {
         if (!extension_loaded('phalcon')) {

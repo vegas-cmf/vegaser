@@ -12,8 +12,18 @@
 
 namespace Vegaser;
 
-class BuildHelper
+/**
+ * Class BuildHelper
+ * @package Vegaser
+ */
+trait BuildHelperTrait
 {
+
+    /**
+     * Because phing needs to use files from stub directory, we need to copy them to the
+     * directory, to make them readable by phing.
+     * When phing finishes work, this directory will be removed.
+     */
     public function copyStub()
     {
         $source = 'phar://vegaser.phar/stub';
@@ -25,9 +35,9 @@ class BuildHelper
                 \RecursiveIteratorIterator::SELF_FIRST) as $item
         ) {
             if ($item->isDir()) {
-                @mkdir($dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
+                mkdir($dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
             } else {
-                @copy($item, $dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
+                copy($item, $dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
             }
         }
     }

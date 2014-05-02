@@ -12,16 +12,31 @@
 
 namespace Vegaser\Command;
 
-use Vegaser\BuildHelper;
+use Vegaser\BuildHelperTrait;
 use Vegaser\CommandInterface;
 
-class BuildProject extends BuildHelper implements CommandInterface
+/**
+ * Class BuildProject
+ *
+ * Build starter project using phing
+ *
+ * @package Vegaser\Command
+ */
+class BuildProject implements CommandInterface
 {
+    use BuildHelperTrait;
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'build-project';
     }
 
+    /**
+     * @param $args
+     */
     public function run($args)
     {
         $this->copyStub();

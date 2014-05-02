@@ -12,16 +12,31 @@
 
 namespace Vegaser\Command;
 
-use Vegaser\BuildHelper;
+use Vegaser\BuildHelperTrait;
 use Vegaser\CommandInterface;
 
-class BuildLibrary extends BuildHelper implements CommandInterface
+/**
+ * Class BuildLibrary
+ *
+ * Build library structure using phing
+ *
+ * @package Vegaser\Command
+ */
+class BuildLibrary  implements CommandInterface
 {
+    use BuildHelperTrait;
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'build-library';
     }
 
+    /**
+     * @param $args
+     */
     public function run($args)
     {
         $this->copyStub();

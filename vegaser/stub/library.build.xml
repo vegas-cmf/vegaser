@@ -78,7 +78,7 @@
 
         <mkdir dir="./vendor" mode="0777" />
         <echo msg="Installing vendors" />
-        <exec level="verbose" command="php composer.phar install" />
+        <exec passthru="true" level="verbose" command="php composer.phar install" />
 
         <echo msg="Cleaning up..." />
         <exec command="rm build.xml" />
