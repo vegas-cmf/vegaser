@@ -3,9 +3,9 @@ Vegas CMF Project builder
 
 **vegaser** is a simple tool for building library and project structure based on **Vegas CMF**.
 
-* Available commands
-1.  build-project
-2.  build-library
+**Available commands**
+1. build-project
+2. build-library
 
 
 Requirements
