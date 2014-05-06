@@ -89,6 +89,20 @@ Before you run **vegaser** tool, determine if you are going to create repository
 
 If so, just clone your repo and enter the directory where you will create new library.
 
+```
+#!shell
+
+mkdir vegas-test
+cd vegas-test
+```
+
+Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
+```
+#!shell
+
+wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar
+```
+
 Use the following command for start creating new library for **Vegas CMF**:
 ```
 #!shell
