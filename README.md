@@ -50,6 +50,11 @@ cd vegas-test
 ```
 
 Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
+```
+#!shell
+
+wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar
+```
 
 ```
 #!shell
