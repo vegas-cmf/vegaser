@@ -20,6 +20,13 @@ Check [http://docs.phalconphp.com/en/latest/reference/install.html](http://docs.
 
 3. Phing
 To start using **vegaser** tool you have to install **Phing** tool in your system.
+
+To check if **Phing** is already installed, just type command in console:
+```
+#!shell
+$> phing
+```
+
 You can simply install it, using **PEAR installer** :
 ```
 #!shell
@@ -35,7 +42,20 @@ Building project
 Before you run **vegaser** tool, determine if you are going to create repository for your project.
 If so, just clone your repo and enter the directory where you will create new project.
 
+```
+#!shell
+
+mkdir vegas-test
+cd vegas-test
+```
+
 Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
+
+```
+#!shell
+
+wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar
+```
 
 Use the following command for start creating new project based on **Vegas CMF**:
 

@@ -75,15 +75,5 @@ TEXT;
 
             exit;
         }
-
-        $reg = new PEAR_Registry();
-        if (!array_search('pear.phing.info', $reg->listChannels())) {
-            print (
-                'Phing tool was not found. ' . PHP_EOL .
-                'Check http://www.phing.info/trac/wiki/Users/Installation for more information' . PHP_EOL
-            );
-
-            exit;
-        }
     }
 }
