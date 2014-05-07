@@ -19,6 +19,7 @@
         <exec command="curl -sS https://getcomposer.org/installer | php" />
 
         <copy verbose="false" file="./stub/LICENCE" tofile="./LICENCE" overwrite="true" />
+        <copy verbose="false" file="./stub/.gitignore" tofile="./.gitignore" overwrite="true" />
         <copy verbose="false" file="./stub/library/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
         <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.php" overwrite="true" />
 
@@ -86,7 +87,7 @@
 
         <echo msg="********************************************************" />
         <echo msg="Everything is done." />
-        <echo msg="If you experienced any problems during installing vendors, try run `php composer.phar install` once again" />
+        <echo msg="If you experienced any problems during installing vendors, try run `php composer.phar install` once again  (you can try with `sudo`)" />
         <echo msg="Enjoy using Vegas CMF!" />
     </target>
 </project>
