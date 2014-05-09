@@ -4,8 +4,6 @@
  * @copyright (c) 2014, Amsterdam Standard
  */
 
-require_once 'PEAR/Registry.php';
-
 /**
  * Class AppManager
  */
