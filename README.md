@@ -53,7 +53,7 @@ Download **vegaser** tool using the following link: [https://bitbucket.org/amsda
 ```
 #!shell
 
-wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar
+wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar --no-cache
 ```
 
 Use the following command for start creating new project based on **Vegas CMF**:
