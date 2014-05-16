@@ -1,12 +1,13 @@
 <?php
 return array(
-    'testfake' => array(
-        'route' => '/test/fake/test',
+    'private' => array(
+        'route' => '/private',
         'paths' => array(
-            'module'    =>  'Test',
-            'controller' => 'Backend\Fake',
-            'action' => 'test'
-        ),
-        'params' => array()
+            'module'    =>  'Home',
+            'controller' => 'Frontend\Private',
+            'action' => 'index',
+
+            'auth'  =>  'auth'
+        )
     )
 );
