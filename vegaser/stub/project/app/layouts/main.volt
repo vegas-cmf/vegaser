@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +32,18 @@
     <div class="site-wrapper-inner">
 
         <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">Vegas CMF</h3>
+                    <ul class="nav masthead-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/private">Private</a></li>
+                        <li><a href="https://bitbucket.org/amsdard/vegas-demo">Features</a></li>
+                        <li><a href="mailto:vegas@amsterdam-standard.pl">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
 
             {{ content() }}
 
