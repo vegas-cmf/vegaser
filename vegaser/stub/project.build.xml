@@ -34,7 +34,7 @@
         <exec command="curl -sS https://getcomposer.org/installer | php" />
 
         <copy verbose="false" file="./stub/.gitignore" tofile="./.gitignore" overwrite="true" />
-        <copy verbose="false" file="./stub/LICENCE" tofile="./LICENCE" overwrite="true" />
+        <copy verbose="false" file="./stub/LICENSE" tofile="./LICENSE" overwrite="true" />
         <copy verbose="false" file="./stub/project/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
         <copy verbose="false" file="./stub/project/tests/config.php" tofile="./tests/config.php" overwrite="true" />
 
