@@ -1,9 +1,5 @@
 <div class="inner cover">
-    <h1 class="cover-heading">Vegas Startup Project.</h1>
-    <p class="lead">Vegas CMF is a complex Content Management Framework that allows you to easily build own CMS.</p>
-    <p class="lead">
-        <a href="https://bitbucket.org/amsdard/vegas-cmf-core" class="btn btn-lg btn-default">Learn more</a>
-    </p>
+    <h1 class="cover-heading">Some private stuff</h1>
 
     {% if identity is defined %}
     <p>

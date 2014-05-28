@@ -15,17 +15,15 @@ namespace Home\Controllers\Frontend;
 use Vegas\Mvc\Controller\ControllerAbstract;
 
 /**
- * Class HomeController
+ * Class PrivateController
  * @package Home\Controllers\Frontend
  */
-class HomeController extends ControllerAbstract
+class PrivateController extends ControllerAbstract
 {
     public function indexAction()
     {
-        if ($this->di->get('auth')->isAuthenticated()) {
-            $identity = $this->di->get('auth')->getIdentity();
+        $identity = $this->di->get('auth')->getIdentity();
 
-            $this->view->identity = $identity;
-        }
+        $this->view->identity = $identity;
     }
 } 
