@@ -112,7 +112,7 @@ php vegaser.phar build-library
 
 During building the library structure enter the name of library, eg. vegas-cmf/foo and the namespace where your library will be situated in the Vegas, eg. **Vegas\\\Foo\\\\** (pay attention on the double backslashes). You can also provide the your name, email and description of library.
 
-Note. Before you run **build-project** command check your directory permissions.
+Note. Before you run **build-library** command check your directory permissions.
 
 In some cases you need to run this script with "sudo" (mostly due to composer):
 ```
