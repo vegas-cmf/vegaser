@@ -118,7 +118,7 @@ In some cases you need to run this script with "sudo" (mostly due to composer):
 ```
 #!shell
 
-sudo php vegaser.phar build-project
+sudo php vegaser.phar build-library
 ```
 
 When the **vegaser** command will be ended successfully, then you can run tests using the following command:
