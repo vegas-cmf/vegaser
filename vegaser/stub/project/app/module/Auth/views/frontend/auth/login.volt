@@ -8,3 +8,7 @@
     </label>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
+<div class="alert alert-info" style="text-align:center">
+    Use the following CLI task to create an user account: <br />
+    <i>php cli/cli.php app:user create -e=user@vegasdemo.com -p=p@$$w0rD -n="Vegas User"</i>
+</div>

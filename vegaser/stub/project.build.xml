@@ -12,6 +12,11 @@
                 <include name="**" />
             </fileset>
         </copy>
+        <copy todir="./cli">
+            <fileset dir="./stub/project/cli">
+                <include name="**" />
+            </fileset>
+        </copy>
         <copy todir="./public">
             <fileset dir="./stub/project/public">
                 <include name="**" />
