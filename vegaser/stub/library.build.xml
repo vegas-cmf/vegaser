@@ -22,6 +22,7 @@
         <copy verbose="false" file="./stub/.gitignore" tofile="./.gitignore" overwrite="true" />
         <copy verbose="false" file="./stub/library/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
         <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.php" overwrite="true" />
+        <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.sample.php" overwrite="true" />
 
         <input
                 message="Enter a name of library (eg. vegas-cmf/assets):"

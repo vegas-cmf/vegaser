@@ -1,10 +1,10 @@
-    <?php
+<?php
 /**
  * This file is part of Vegas package
  *
  * @author Slawomir Zytko <slawomir.zytko@gmail.com>
  * @copyright Amsterdam Standard Sp. Z o.o.
- * @homepage https://bitbucket.org/amsdard/vegas-phalcon
+ * @homepage http://vegas-cmf.github.io
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,11 +26,18 @@ class FlashServiceProvider implements ServiceProviderInterface
     {
         $di->set(self::SERVICE_NAME, function() {
             return new \Phalcon\Flash\Session(array(
-                'error' => 'flash-message flash-error',
-                'success' => 'flash-message flash-success',
-                'notice' => 'flash-message flash-info',
+                'error' => 'alert alert-danger',
+                'success' => 'alert alert-success',
+                'notice' => 'alert alert-info',
             ));
         });
-
     }
-} 
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDependencies()
+    {
+        return array();
+    }
+}

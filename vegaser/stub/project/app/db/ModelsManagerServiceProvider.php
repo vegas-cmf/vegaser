@@ -1,10 +1,10 @@
-    <?php
+<?php
 /**
  * This file is part of Vegas package
  *
  * @author Slawomir Zytko <slawomir.zytko@gmail.com>
  * @copyright Amsterdam Standard Sp. Z o.o.
- * @homepage https://bitbucket.org/amsdard/vegas-phalcon
+ * @homepage http://vegas-cmf.github.io
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,18 +13,26 @@
 use Phalcon\DiInterface;
 use Vegas\DI\ServiceProviderInterface;
 use Phalcon\Mvc\Url as UrlResolver;
-use \Vegas\Session\Adapter\Files as SessionAdapter;
 
-class PasswordManagerServiceProvider implements ServiceProviderInterface
+class ModelsManagerServiceProvider implements ServiceProviderInterface
 {
-    const SERVICE_NAME = 'userPasswordManager';
+    const SERVICE_NAME = 'modelsManager';
 
     /**
      * {@inheritdoc}
      */
     public function register(DiInterface $di)
     {
-        $di->set(self::SERVICE_NAME, '\Vegas\Security\Password\Adapter\Standard', true);
+        $di->set(self::SERVICE_NAME, function() use ($di) {
+            return new \Phalcon\Mvc\Model\Manager();;
+        }, true);
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getDependencies()
+    {
+        return array();
     }
 } 

@@ -13,23 +13,26 @@
 use Phalcon\DiInterface;
 use Vegas\DI\ServiceProviderInterface;
 use Phalcon\Mvc\Url as UrlResolver;
-use \Vegas\Session\Adapter\Files as SessionAdapter;
 
-class AuthServiceProvider implements ServiceProviderInterface
+class DbServiceProvider implements ServiceProviderInterface
 {
-    const SERVICE_NAME = 'auth';
+    const SERVICE_NAME = 'db';
 
     /**
      * {@inheritdoc}
+     * @link http://phalcon.agent-j.ru/en/1.3.0/Phalcon/Db/Adapter/Pdo/Oracle
      */
     public function register(DiInterface $di)
     {
         $di->set(self::SERVICE_NAME, function () use ($di) {
-            $adapter = new \Vegas\Security\Authentication\Adapter\Standard($di->get('userPasswordManager'));
-            $adapter->setSessionStorage($di->get('sessionManager')->createScope('auth'));
-            $auth = new \Vegas\Security\Authentication($adapter);
-
-            return $auth;
+            $config = $di->get('config');
+            $di->set('db', function () use ($config) {
+                return new Phalcon\Db\Adapter\Pdo\Oracle(array(
+                    "dbname" => $config->database->dbname,
+                    "username" => $config->database->username,
+                    "password" => $config->database->password
+                ));
+            });
         }, true);
     }
 
@@ -39,7 +42,7 @@ class AuthServiceProvider implements ServiceProviderInterface
     public function getDependencies()
     {
         return array(
-            UserPasswordManagerServiceProvider::SERVICE_NAME
+            ModelsManagerServiceProvider::SERVICE_NAME
         );
     }
 } 

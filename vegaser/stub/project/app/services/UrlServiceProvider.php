@@ -1,10 +1,10 @@
-    <?php
+<?php
 /**
  * This file is part of Vegas package
  *
  * @author Slawomir Zytko <slawomir.zytko@gmail.com>
  * @copyright Amsterdam Standard Sp. Z o.o.
- * @homepage https://bitbucket.org/amsdard/vegas-phalcon
+ * @homepage http://vegas-cmf.github.io
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,9 +14,6 @@ use Phalcon\DiInterface;
 use Vegas\DI\ServiceProviderInterface;
 use Phalcon\Mvc\Url as UrlResolver;
 
-/**
- * Class UrlServiceProvider
- */
 class UrlServiceProvider implements ServiceProviderInterface
 {
     const SERVICE_NAME = 'url';
@@ -31,5 +28,13 @@ class UrlServiceProvider implements ServiceProviderInterface
             $url->setBaseUri($di->get('config')->application->baseUri);
             return $url;
         }, true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDependencies()
+    {
+        return array();
     }
 } 

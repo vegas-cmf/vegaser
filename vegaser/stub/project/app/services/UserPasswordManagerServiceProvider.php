@@ -15,23 +15,17 @@ use Vegas\DI\ServiceProviderInterface;
 use Phalcon\Mvc\Url as UrlResolver;
 use \Vegas\Session\Adapter\Files as SessionAdapter;
 
-class I18nServiceProvider implements ServiceProviderInterface
+class UserPasswordManagerServiceProvider implements ServiceProviderInterface
 {
-    const SERVICE_NAME = 'i18n';
+    const SERVICE_NAME = 'userPasswordManager';
 
     /**
      * {@inheritdoc}
      */
     public function register(DiInterface $di)
     {
-        $config = $di->get('config');
-        $di->set('i18n', function() use ($config) {
-            return new \Phalcon\Translate\Adapter\Gettext(array(
-                'locale' => $config->application->language,
-                'file' => 'messages',
-                'directory' => APP_ROOT.'/lang'
-            ));
-        });
+        $di->set(self::SERVICE_NAME, '\Vegas\Security\Password\Adapter\Standard', true);
+
     }
 
     /**

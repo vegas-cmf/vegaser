@@ -33,19 +33,40 @@
         <echo msg="Downloading composer" />
         <exec command="curl -sS https://getcomposer.org/installer | php" />
 
-        <copy verbose="false" file="./stub/.gitignore" tofile="./.gitignore" overwrite="true" />
+        <copy verbose="false" file="./stub/project/.gitignore" tofile="./.gitignore" overwrite="true" />
         <copy verbose="false" file="./stub/LICENSE" tofile="./LICENSE" overwrite="true" />
         <copy verbose="false" file="./stub/project/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
         <copy verbose="false" file="./stub/project/tests/config.php" tofile="./tests/config.php" overwrite="true" />
+        <copy verbose="false" file="./stub/project/tests/config.php" tofile="./tests/config.sample.php" overwrite="true" />
 
         <input
                 message="Enter a name of project (eg. vegas-demo):"
                 propertyName="config.name"/>
 
         <input
-                message="Enter a description of profject"
+                message="Enter a description of project"
                 defaultValue="Project based on Vegas CMF"
                 propertyName="config.description"/>
+
+        <input
+                message="Enter project domain"
+                defaultValue="vegasdemo.com"
+                propertyName="config.domain"/>
+
+        <input
+                message="Choose a database ${line.separator}
+                1. Mongo${line.separator}
+                2. Mysql${line.separator}
+                3. Postgresql${line.separator}
+                4. Sqlite${line.separator}
+                5. Oracle${line.separator}"
+                defaultValue="1"
+                propertyName="config.db" />
+
+        <input
+                message="Enter project locale"
+                defaultValue="nl_NL"
+                propertyName="config.locale" />
 
         <input
                 message="Enter your name:"
@@ -78,6 +99,115 @@
             </filterchain>
         </copy>
 
+        <echo msg="Initializing database" />
+        <if>
+            <equals arg1="${config.db}" arg2="1" />
+            <then>
+                <echo message="Mongo" />
+                <copy verbose="false"
+                      file="./stub/project/app/db/MongoServiceProvider.php"
+                      tofile="./app/services/MongoServiceProvider.php"
+                      overwrite="true" />
+                <copy verbose="false"
+                      file="./stub/project/app/db/CollectionManagerServiceProvider.php"
+                      tofile="./app/services/CollectionManagerServiceProvider.php"
+                      overwrite="true" />
+                <copy verbose="false"
+                      file="./stub/project/app/db/app/module/Auth/models/collection/BaseUser.php"
+                      tofile="./app/module/Auth/models/BaseUser.php"
+                      overwrite="true" />
+                <property name="config.adapter" value="" />
+            </then>
+            <elseif>
+                <equals arg1="${config.db}" arg2="2" />
+                <then>
+                    <echo message="Mysql" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/MysqlServiceProvider.php"
+                          tofile="./app/services/DbServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
+                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
+                          tofile="./app/module/Auth/models/BaseUser.php"
+                          overwrite="true" />
+                    <property name="config.adapter" value="Mysql" />
+                </then>
+            </elseif>
+            <elseif>
+                <equals arg1="${config.db}" arg2="3" />
+                <then>
+                    <echo message="Postgresql" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/PostgresqlServiceProvider.php"
+                          tofile="./app/services/DbServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
+                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
+                          tofile="./app/module/Auth/models/BaseUser.php"
+                          overwrite="true" />
+                    <property name="config.adapter" value="Postgresql" />
+                </then>
+            </elseif>
+            <elseif>
+                <equals arg1="${config.db}" arg2="4" />
+                <then>
+                    <echo message="Sqlite" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/SqliteServiceProvider.php"
+                          tofile="./app/services/DbServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
+                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
+                          tofile="./app/module/Auth/models/BaseUser.php"
+                          overwrite="true" />
+                    <property name="config.adapter" value="Sqlite" />
+                </then>
+            </elseif>
+            <elseif>
+                <equals arg1="${config.db}" arg2="5" />
+                <then>
+                    <echo message="Oracle" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/OracleServiceProvider.php"
+                          tofile="./app/services/DbServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
+                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
+                          tofile="./app/module/Auth/models/BaseUser.php"
+                          overwrite="true" />
+                    <property name="config.adapter" value="Oracle" />
+                </then>
+            </elseif>
+        </if>
+
+        <echo msg="Generating config file" />
+        <copy verbose="false" file="./stub/project/app/config/config.php" tofile="./app/config/config.php" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                    <token key="config.domain" value="${config.domain}" />
+                    <token key="config.adapter" value="${config.adapter}" />
+                    <token key="config.locale" value="${config.locale}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+        <copy verbose="false" file="./app/config/config.php" tofile="./app/config/config.sample.php" overwrite="true" />
+
         <echo msg="Generating readme file" />
         <copy verbose="false" file="./stub/README.md" tofile="./README.md" overwrite="true">
             <filterchain>
@@ -88,12 +218,19 @@
         </copy>
 
         <mkdir dir="./vendor" mode="0777" />
+        <mkdir dir="./app/tasks" mode="0777" />
+        <touch file="./app/config/modules.php" />
+        <touch file="./app/config/services.php" />
+        <chmod file="./app/config" mode="0777" />
+        <chmod file="./app/config/modules.php" mode="0777" />
+        <chmod file="./app/config/services.php" mode="0777" />
         <echo msg="Installing vendors" />
         <exec passthru="true" level="verbose" command="php composer.phar install" />
 
         <echo msg="Cleaning up..." />
         <exec command="rm build.xml" />
         <exec command="rm -rf stub" />
+        <exec command="rm -rf app/db" />
 
         <echo msg="********************************************************" />
         <echo msg="Everything is done." />

@@ -4,7 +4,7 @@
  *
  * @author Slawomir Zytko <slawomir.zytko@gmail.com>
  * @copyright Amsterdam Standard Sp. Z o.o.
- * @homepage https://bitbucket.org/amsdard/vegas-phalcon
+ * @homepage http://vegas-cmf.github.io
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,6 +20,7 @@ class MongoServiceProvider implements ServiceProviderInterface
 
     /**
      * {@inheritdoc}
+     * @see http://docs.phalconphp.com/pl/latest/reference/odm.html
      */
     public function register(DiInterface $di)
     {
@@ -27,5 +28,15 @@ class MongoServiceProvider implements ServiceProviderInterface
             $mongo = new \MongoClient();
             return $mongo->selectDb($di->get('config')->mongo->db);
         }, true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDependencies()
+    {
+        return array(
+            CollectionManagerServiceProvider::SERVICE_NAME
+        );
     }
 } 

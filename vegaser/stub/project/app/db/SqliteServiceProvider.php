@@ -13,25 +13,25 @@
 use Phalcon\DiInterface;
 use Vegas\DI\ServiceProviderInterface;
 use Phalcon\Mvc\Url as UrlResolver;
-use \Vegas\Session\Adapter\Files as SessionAdapter;
 
-class I18nServiceProvider implements ServiceProviderInterface
+class DbServiceProvider implements ServiceProviderInterface
 {
-    const SERVICE_NAME = 'i18n';
+    const SERVICE_NAME = 'db';
 
     /**
      * {@inheritdoc}
+     * @see http://docs.phalconphp.com/en/latest/api/Phalcon_Db_Adapter_Pdo_Sqlite.html
      */
     public function register(DiInterface $di)
     {
-        $config = $di->get('config');
-        $di->set('i18n', function() use ($config) {
-            return new \Phalcon\Translate\Adapter\Gettext(array(
-                'locale' => $config->application->language,
-                'file' => 'messages',
-                'directory' => APP_ROOT.'/lang'
-            ));
-        });
+        $di->set(self::SERVICE_NAME, function () use ($di) {
+            $config = $di->get('config');
+            $di->set('db', function () use ($config) {
+                return new Phalcon\Db\Adapter\Pdo\Sqlite(array(
+                    "dbname" => $config->database->path
+                ));
+            });
+        }, true);
     }
 
     /**
@@ -39,6 +39,8 @@ class I18nServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array();
+        return array(
+            ModelsManagerServiceProvider::SERVICE_NAME
+        );
     }
 } 

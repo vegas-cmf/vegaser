@@ -1,36 +1,48 @@
 <?php
+
+define('HOSTNAME', '%%config.domain%%');
+
 return array(
     'application' => array(
+        'environment'    => 'development',
+
         'servicesDir'   =>  APP_ROOT . '/app/services/',
         'configDir'     => dirname(__FILE__) . DIRECTORY_SEPARATOR,
-        'libraryDir'     => dirname(APP_ROOT) . DIRECTORY_SEPARATOR,
+        'libraryDir'     => APP_ROOT . DIRECTORY_SEPARATOR . 'lib/',
         'pluginDir'      => APP_ROOT . '/app/plugins/',
         'moduleDir'      => APP_ROOT . '/app/module/',
+        'tasksDir'      => APP_ROOT . '/app/tasks/',
         'baseUri'        => '/',
-        'language'       => 'nl_NL',
+        'language'       => '%%config.locale%%',
         'subModules'    =>  array(
-            'frontend', 'backend'
+            'frontend', 'backend', 'dashboard'
         ),
         'view'  => array(
             'cacheDir'  =>  APP_ROOT . '/cache/',
             'layout'    =>  'main',
-            /**
-             * app/layouts must be relative in vendor/Vegas/Mvc/ModuleAbstract
-             * @see https://github.com/phalcon/cphalcon/issues/546
-             */
-            'layoutsDir'    =>  '../../../../app/layouts'
-        )
+            'layoutsDir'    =>  APP_ROOT . '/app/layouts'
+        ),
+
+        'hostname'    =>  HOSTNAME
     ),
-    'environment'    => 'development',
 
     'auth'  =>  array(
         'auth'  =>  array(
             'route'    =>  'login'
+        ),
+        'authDashboard'  =>  array(
+            'route'    =>  'dashboard_login'
         )
     ),
 
     'mongo' => array(
-        'db' => 'vegas_test',
+        'db' => '',
+        //see app/services/MongoServiceProvider.php to get more information how to setup database details
+    ),
+
+    'database' => array(
+        "adapter"  => "%%config.adapter%%",
+        //see app/services/DbServiceProvider.php to get more information how to setup database details
     ),
 
     'session' => array(
