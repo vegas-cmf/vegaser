@@ -26,15 +26,6 @@ return array(
         'hostname'    =>  HOSTNAME
     ),
 
-    'auth'  =>  array(
-        'auth'  =>  array(
-            'route'    =>  'login'
-        ),
-        'authDashboard'  =>  array(
-            'route'    =>  'dashboard_login'
-        )
-    ),
-
     'mongo' => array(
         'db' => '',
         //see app/services/MongoServiceProvider.php to get more information how to setup database details
