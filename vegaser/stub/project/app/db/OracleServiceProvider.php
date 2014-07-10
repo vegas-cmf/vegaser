@@ -28,7 +28,9 @@ class DbServiceProvider implements ServiceProviderInterface
             $config = $di->get('config');
             $di->set('db', function () use ($config) {
                 return new Phalcon\Db\Adapter\Pdo\Oracle(array(
+                    "host" => $config->database->host,
                     "dbname" => $config->database->dbname,
+                    "port" => $config->database->port,
                     "username" => $config->database->username,
                     "password" => $config->database->password
                 ));
