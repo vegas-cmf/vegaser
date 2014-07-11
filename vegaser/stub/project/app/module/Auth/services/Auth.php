@@ -12,7 +12,7 @@
 
 namespace Auth\Services;
 
-use Auth\Models\BaseUser;
+use User\Models\User;
 
 class Auth implements \Phalcon\DI\InjectionAwareInterface
 {
@@ -20,7 +20,7 @@ class Auth implements \Phalcon\DI\InjectionAwareInterface
 
     public function login($email, $password) 
     {
-        $user = BaseUser::findFirst(array(array('email' => $email)));
+        $user = User::findFirst(array(array('email' => $email)));
         if (!$user) {
             throw new \Vegas\Security\Authentication\Exception\InvalidCredentialException();
         }

@@ -36,7 +36,6 @@ class BaseUser extends ModelAbstract implements GenericUserInterface
 
     public function getCredential()
     {
-        //$this->getDI()->get('userPasswordManager')->encryptPassword('testpassword)
         return $this->readAttribute('password');
     }
 
