@@ -4,7 +4,7 @@ define('HOSTNAME', '%%config.domain%%');
 
 return array(
     'application' => array(
-        'environment'    => 'development',
+        'environment'    => \Vegas\Constants::DEV_ENV,
 
         'servicesDir'   =>  APP_ROOT . '/app/services/',
         'configDir'     => dirname(__FILE__) . DIRECTORY_SEPARATOR,
@@ -27,12 +27,12 @@ return array(
     ),
 
     'mongo' => array(
-        'db' => '',
+        'dbname' => '',
         //see app/services/MongoServiceProvider.php to get more information how to setup database details
     ),
 
-    'database' => array(
-        "adapter"  => "%%config.adapter%%",
+    'db' => array(
+        'adapter'  => '%%config.adapter%%',
         //see app/services/DbServiceProvider.php to get more information how to setup database details
     ),
 

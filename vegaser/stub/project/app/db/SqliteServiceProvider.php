@@ -28,7 +28,7 @@ class DbServiceProvider implements ServiceProviderInterface
             $config = $di->get('config');
             $di->set('db', function () use ($config) {
                 return new Phalcon\Db\Adapter\Pdo\Sqlite(array(
-                    "dbname" => $config->database->path
+                    "dbname" => $config->db->dbname
                 ));
             });
         }, true);

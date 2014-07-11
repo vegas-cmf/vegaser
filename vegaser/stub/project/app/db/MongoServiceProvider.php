@@ -33,10 +33,13 @@ class MongoServiceProvider implements ServiceProviderInterface
             } else {
                 $hostname = 'mongodb://localhost';
             }
-            unset($mongoConfig['hostname']);
+            if (isset($mongoConfig['port'])) {
+                $hostname .= ':' . $mongoConfig['port'];
+            }
+            unset($mongoConfig['host']);
 
             $mongo = new \MongoClient($hostname, $mongoConfig);
-            return $mongo->selectDb($mongoConfig['db']);
+            return $mongo->selectDb($mongoConfig['dbname']);
         }, true);
     }
 
