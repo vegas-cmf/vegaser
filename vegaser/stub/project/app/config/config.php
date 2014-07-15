@@ -6,17 +6,14 @@ return array(
     'application' => array(
         'environment'    => \Vegas\Constants::DEV_ENV,
 
-        'servicesDir'   =>  APP_ROOT . '/app/services/',
+        'serviceDir'   =>  APP_ROOT . '/app/services/',
         'configDir'     => dirname(__FILE__) . DIRECTORY_SEPARATOR,
         'libraryDir'     => APP_ROOT . DIRECTORY_SEPARATOR . 'lib/',
         'pluginDir'      => APP_ROOT . '/app/plugins/',
-        'moduleDir'      => APP_ROOT . '/app/module/',
-        'tasksDir'      => APP_ROOT . '/app/tasks/',
+        'moduleDir'      => APP_ROOT . '/app/modules/',
+        'taskDir'      => APP_ROOT . '/app/tasks/',
         'baseUri'        => '/',
         'language'       => '%%config.locale%%',
-        'subModules'    =>  array(
-            'frontend', 'backend', 'dashboard'
-        ),
         'view'  => array(
             'cacheDir'  =>  APP_ROOT . '/cache/',
             'layout'    =>  'main',
