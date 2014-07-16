@@ -45,9 +45,9 @@ mkdir vegas-test
 cd vegas-test
 ```
 
-Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
+Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar)
 ```
-wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar --no-cache
+wget https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar --no-cache
 ```
 
 Use the following command for start creating new project based on **Vegas CMF**:
@@ -80,9 +80,9 @@ mkdir vegas-test
 cd vegas-test
 ```
 
-Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
+Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar)
 ```
-wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar
+wget https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar --no-cache
 ```
 
 Use the following command for start creating new library for **Vegas CMF**:
