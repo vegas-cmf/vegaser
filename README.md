@@ -1,4 +1,4 @@
-Vegas CMF Project builder
+Vegas CMF Project/Library builder
 =========================
 
 **vegaser** is a simple tool for building library and project structure based on **Vegas CMF**.
@@ -10,7 +10,7 @@ Vegas CMF Project builder
 
 
 Requirements
-============
+------------
 1. PHP >= 5.4
 We highly recommend using PHP at least in version 5.4
 
@@ -36,7 +36,7 @@ Check [http://www.phing.info/docs/guide/trunk/ch03s03.html](http://www.phing.inf
 
 
 Building project
-================
+----------------
 Before you run **vegaser** tool, determine if you are going to create repository for your project.
 If so, just clone your repo and enter the directory where you will create new project.
 
@@ -71,7 +71,7 @@ php -S 0.0.0.0:8080 -t public/ public/index.php
 
 
 Building library
-================
+----------------
 Before you run **vegaser** tool, determine if you are going to create repository for your **Vegas CMF** library.
 
 If so, just clone your repo and enter the directory where you will create new library.
