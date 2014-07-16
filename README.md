@@ -23,13 +23,11 @@ To start using **vegaser** tool you have to install **Phing** tool in your syste
 
 To check if **Phing** is already installed, just type command in console:
 ```
-#!shell
 $> phing
 ```
 
 You can simply install it, using **PEAR installer** :
 ```
-#!shell
 $> pear channel-discover pear.phing.info
 $> pear install phing/phing
 ```
@@ -43,24 +41,17 @@ Before you run **vegaser** tool, determine if you are going to create repository
 If so, just clone your repo and enter the directory where you will create new project.
 
 ```
-#!shell
-
 mkdir vegas-test
 cd vegas-test
 ```
 
 Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
 ```
-#!shell
-
 wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar --no-cache
 ```
 
 Use the following command for start creating new project based on **Vegas CMF**:
-
 ```
-#!shell
-
 php vegaser.phar build-project
 ```
 
@@ -70,15 +61,11 @@ Note. Before you run **build-project** command check your directory permissions.
 
 In some cases you need to run this script with "sudo" (mostly due to composer):
 ```
-#!shell
-
 sudo php vegaser.phar build-project
 ```
 
 When the **vegaser** command will be ended successfully, then you can see starter project by starting local php server:
 ```
-#!shell
-
 php -S 0.0.0.0:8080 -t public/ public/index.php
 ```
 
@@ -88,25 +75,18 @@ Building library
 Before you run **vegaser** tool, determine if you are going to create repository for your **Vegas CMF** library.
 
 If so, just clone your repo and enter the directory where you will create new library.
-
 ```
-#!shell
-
 mkdir vegas-test
 cd vegas-test
 ```
 
 Download **vegaser** tool using the following link: [https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar](https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar)
 ```
-#!shell
-
 wget https://bitbucket.org/amsdard/vegaser/downloads/vegaser.phar
 ```
 
 Use the following command for start creating new library for **Vegas CMF**:
 ```
-#!shell
-
 php vegaser.phar build-library
 ```
 
@@ -116,15 +96,11 @@ Note. Before you run **build-library** command check your directory permissions.
 
 In some cases you need to run this script with "sudo" (mostly due to composer):
 ```
-#!shell
-
 sudo php vegaser.phar build-library
 ```
 
 When the **vegaser** command will be ended successfully, then you can run tests using the following command:
 ```
-#!shell
-
 ./vendor/bin/phpunit
 ```
 
