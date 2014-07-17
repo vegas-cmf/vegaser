@@ -10,14 +10,6 @@
  * file that was distributed with this source code.
  */
 
-use Phalcon\Events\Event;
-use Phalcon\Mvc\Dispatcher;
-use Vegas\Security\Authentication;
-
-/**
- *
- * @package App\Security
- */
 class SecurityPlugin extends \Vegas\Security\Authentication\EventsManager\Plugin
 {
 

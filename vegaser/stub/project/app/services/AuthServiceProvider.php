@@ -11,9 +11,8 @@
  */
 
 use Phalcon\DiInterface;
-use Vegas\DI\ServiceProviderInterface;
 use Phalcon\Mvc\Url as UrlResolver;
-use \Vegas\Session\Adapter\Files as SessionAdapter;
+use Vegas\DI\ServiceProviderInterface;
 
 class AuthServiceProvider implements ServiceProviderInterface
 {
@@ -39,6 +38,7 @@ class AuthServiceProvider implements ServiceProviderInterface
     public function getDependencies()
     {
         return array(
+            SessionManagerServiceProvider::SERVICE_NAME,
             UserPasswordManagerServiceProvider::SERVICE_NAME
         );
     }
