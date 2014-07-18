@@ -45,11 +45,11 @@
         <copy verbose="false" file="./stub/project/tests/config.php" tofile="./tests/config.sample.php" overwrite="true" />
 
         <input
-                message="Enter a name of project (eg. vegas-demo):"
+                message="Enter name of project (eg. vegas-demo):"
                 propertyName="config.name"/>
 
         <input
-                message="Enter a description of project"
+                message="Enter description of project"
                 defaultValue="Project based on Vegas CMF"
                 propertyName="config.description"/>
 

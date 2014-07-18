@@ -25,16 +25,16 @@
         <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.sample.php" overwrite="true" />
 
         <input
-                message="Enter a name of library (eg. vegas-cmf/assets):"
+                message="Enter name of library (eg. vegas-cmf/assets):"
                 propertyName="config.name"/>
 
         <input
-                message="Enter a description of library"
+                message="Enter description of library"
                 defaultValue="Vegas CMF Library"
                 propertyName="config.description"/>
 
         <input
-                message="Enter a namespace of library (eg. Vegas\\Assets\\):"
+                message="Enter namespace of library (eg. Vegas\\Assets\\):"
                 propertyName="config.namespace"/>
 
         <input
