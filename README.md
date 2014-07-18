@@ -59,11 +59,6 @@ During building the project enter the name of project, eg. vegas-test. You can a
 
 Note. Before you run **build-project** command check your directory permissions.
 
-In some cases you need to run this script with "sudo" (mostly due to composer):
-```
-sudo php vegaser.phar build-project
-```
-
 When the **vegaser** command will be ended successfully, then you can see starter project by starting local php server:
 ```
 php -S 0.0.0.0:8080 -t public/ public/index.php
@@ -93,11 +88,6 @@ php vegaser.phar build-library
 During building the library structure enter the name of library, eg. vegas-cmf/foo and the namespace where your library will be situated in the Vegas, eg. **Vegas\\\Foo\\\\** (pay attention on the double backslashes). You can also provide the your name, email and description of library.
 
 Note. Before you run **build-library** command check your directory permissions.
-
-In some cases you need to run this script with "sudo" (mostly due to composer):
-```
-sudo php vegaser.phar build-library
-```
 
 When the **vegaser** command will be ended successfully, then you can run tests using the following command:
 ```

@@ -229,8 +229,6 @@
         <chmod file="./app/config" mode="0777" />
         <chmod file="./app/config/modules.php" mode="0777" />
         <chmod file="./app/config/services.php" mode="0777" />
-        <echo msg="Installing vendors" />
-        <exec passthru="true" level="verbose" command="php composer.phar install" />
 
         <echo msg="Cleaning up..." />
         <exec command="rm build.xml" />
@@ -239,7 +237,7 @@
 
         <echo msg="********************************************************" />
         <echo msg="Everything is done." />
-        <echo msg="If you experienced any problems during installing vendors, try run `php composer.phar install` once again (you can try with `sudo`)" />
+        <echo msg="Run `php composer.phar install` to install vendors" />
         <echo msg="Enjoy using Vegas CMF!" />
     </target>
 </project>
