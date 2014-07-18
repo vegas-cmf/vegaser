@@ -46,6 +46,7 @@
 
         <input
                 message="Enter name of project (eg. vegas-demo):"
+                defaultValue="VegasApp"
                 propertyName="config.name"/>
 
         <input

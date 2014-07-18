@@ -1,6 +1,6 @@
 {
     "name": "%%config.name%%",
-    "type" : "library",
+    "type" : "project",
     "description": "%%config.description%%",
     "license": "MIT",
     "authors": [
