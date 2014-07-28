@@ -119,8 +119,8 @@
                       tofile="./app/services/CollectionManagerServiceProvider.php"
                       overwrite="true" />
                 <copy verbose="false"
-                      file="./stub/project/app/db/app/module/Auth/models/collection/BaseUser.php"
-                      tofile="./app/module/Auth/models/BaseUser.php"
+                      file="./stub/project/app/db/app/modules/Auth/models/collection/BaseUser.php"
+                      tofile="./app/modules/Auth/models/BaseUser.php"
                       overwrite="true" />
                 <property name="config.adapter" value="" />
             </then>
@@ -137,8 +137,8 @@
                           tofile="./app/services/ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
-                          tofile="./app/module/Auth/models/BaseUser.php"
+                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
+                          tofile="./app/modules/Auth/models/BaseUser.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Mysql" />
                 </then>
@@ -156,8 +156,8 @@
                           tofile="./app/services/ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
-                          tofile="./app/module/Auth/models/BaseUser.php"
+                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
+                          tofile="./app/modules/Auth/models/BaseUser.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Postgresql" />
                 </then>
@@ -175,8 +175,8 @@
                           tofile="./app/services/ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
-                          tofile="./app/module/Auth/models/BaseUser.php"
+                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
+                          tofile="./app/modules/Auth/models/BaseUser.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Sqlite" />
                 </then>
@@ -194,8 +194,8 @@
                           tofile="./app/services/ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/module/Auth/models/model/BaseUser.php"
-                          tofile="./app/module/Auth/models/BaseUser.php"
+                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
+                          tofile="./app/modules/Auth/models/BaseUser.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Oracle" />
                 </then>
