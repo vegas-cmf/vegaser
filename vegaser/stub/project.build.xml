@@ -122,6 +122,10 @@
                       file="./stub/project/app/db/app/modules/Auth/models/collection/BaseUser.php"
                       tofile="./app/modules/Auth/models/BaseUser.php"
                       overwrite="true" />
+                <copy verbose="false"
+                      file="./stub/project/app/db/app/modules/Auth/services/collection/Auth.php"
+                      tofile="./app/modules/Auth/services/Auth.php"
+                      overwrite="true" />
                 <property name="config.adapter" value="" />
             </then>
             <elseif>
@@ -139,6 +143,10 @@
                     <copy verbose="false"
                           file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
                           tofile="./app/modules/Auth/models/BaseUser.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
+                          tofile="./app/modules/Auth/services/Auth.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Mysql" />
                 </then>
@@ -159,6 +167,10 @@
                           file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
                           tofile="./app/modules/Auth/models/BaseUser.php"
                           overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
+                          tofile="./app/modules/Auth/services/Auth.php"
+                          overwrite="true" />
                     <property name="config.adapter" value="Postgresql" />
                 </then>
             </elseif>
@@ -178,6 +190,10 @@
                           file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
                           tofile="./app/modules/Auth/models/BaseUser.php"
                           overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
+                          tofile="./app/modules/Auth/services/Auth.php"
+                          overwrite="true" />
                     <property name="config.adapter" value="Sqlite" />
                 </then>
             </elseif>
@@ -196,6 +212,10 @@
                     <copy verbose="false"
                           file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
                           tofile="./app/modules/Auth/models/BaseUser.php"
+                          overwrite="true" />
+                    <copy verbose="false"
+                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
+                          tofile="./app/modules/Auth/services/Auth.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Oracle" />
                 </then>
