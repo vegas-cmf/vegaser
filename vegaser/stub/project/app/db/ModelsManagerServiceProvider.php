@@ -23,7 +23,7 @@ class ModelsManagerServiceProvider implements ServiceProviderInterface
     public function register(DiInterface $di)
     {
         $di->set(self::SERVICE_NAME, function() use ($di) {
-            return new \Phalcon\Mvc\Model\Manager();;
+            return new \Phalcon\Mvc\Model\Manager();
         }, true);
     }
 

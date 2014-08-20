@@ -30,6 +30,9 @@
         <echo msg="Making cache directory" />
         <mkdir dir="./cache" />
         <chmod file="./cache" mode="0777" />
+
+        <touch file="./app/config/modules.php" />
+        <touch file="./app/config/services.php" />
         <chmod file="./app/config" mode="0777" />
 
         <echo msg="Making fixtures directory" />
