@@ -49,7 +49,7 @@ class BaseUser extends ModelAbstract implements GenericUserInterface
         $userData = $this->toArray();
         //remove password from user data
         unset($userData['password']);
-        $userData['id'] = $this->getId();
+        $userData['id'] = $this->id;
 
         return $userData;
     }

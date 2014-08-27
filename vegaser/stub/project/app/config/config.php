@@ -20,7 +20,7 @@ return array(
             'layoutsDir'    =>  APP_ROOT . '/app/layouts'
         ),
 
-        //'hostname'    =>  HOSTNAME    // uncomment when you are using subdomains in routes
+        //'hostname'    =>  HOSTNAME    // uncomment when you are using subdomains
     ),
 
     'mongo' => array(
