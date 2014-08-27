@@ -41,12 +41,17 @@ class UserTask extends \Vegas\Cli\Task
 
     public function createAction()
     {
-        $user = new \Auth\Models\BaseUser();
+        $user = new \User\Models\User();
         $user->email = $this->getOption('email');
+        $user->password = $this->getOption('password');
         $user->raw_password = $this->getOption('password');
         $user->name = $this->getOption('name');
 
-        $user->save();
+        $result = $user->save();
+        if (!$result) {
+            $this->putError('Failed to create user');
+            return;
+        }
 
         $this->putSuccess('User created');
         $this->pubObject($user->toArray());

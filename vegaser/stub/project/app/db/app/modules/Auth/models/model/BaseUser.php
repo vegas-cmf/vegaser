@@ -16,6 +16,11 @@ use Vegas\Security\Authentication\GenericUserInterface;
 
 class BaseUser extends ModelAbstract implements GenericUserInterface
 {
+    public $password;
+    public $raw_password;
+    public $email;
+    public $name;
+
     public function getSource()
     {
         return 'vegas_users';
