@@ -20,7 +20,7 @@
         "ext-phalcon": ">=1.3.0,<2",
         "phalcon/devtools": "1.3.x-dev",
         "phalcon/incubator": "dev-master",
-        "vegas-cmf/core" : "1.0.0"
+        "vegas-cmf/core" : "1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "4.0.*"
