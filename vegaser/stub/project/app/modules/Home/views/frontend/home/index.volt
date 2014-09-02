@@ -2,7 +2,7 @@
     <h1 class="cover-heading">Vegas Startup Project.</h1>
     <p class="lead">Vegas CMF is a complex Content Management Framework that allows you to easily build own CMS.</p>
     <p class="lead">
-        <a href="https://bitbucket.org/amsdard/vegas-cmf-core" class="btn btn-lg btn-default">Learn more</a>
+        <a href="https://vegas-cmf.github.io" class="btn btn-lg btn-default">Learn more</a>
     </p>
 
     {% if identity is defined %}
@@ -14,6 +14,6 @@
 
 <div class="mastfoot">
     <div class="inner">
-        <p>Thanks for using <a href="http://vegas.amsterdam-standard.pl">Vegas CMF</a>.</p>
+        <p>Thanks for using <a href="https://github.com/vegas-cmf">Vegas CMF</a>.</p>
     </div>
 </div>

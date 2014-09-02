@@ -68,7 +68,8 @@
                 2. Mysql${line.separator}
                 3. Postgresql${line.separator}
                 4. Sqlite${line.separator}
-                5. Oracle${line.separator}"
+                5. Oracle${line.separator}
+                6. None${line.separator}"
                 defaultValue="1"
                 propertyName="config.db" />
 
@@ -77,24 +78,12 @@
                 defaultValue="nl_NL"
                 propertyName="config.locale" />
 
-        <input
-                message="Enter your name:"
-                defaultValue="Amsterdam Standard Vegas Team"
-                propertyName="config.author_name" />
-
-        <input
-                message="Enter your email:"
-                defaultValue="vegas@amsterdam-standard.pl"
-                propertyName="config.author_email" />
-
         <echo msg="Generating composer configuration" />
         <copy verbose="false" file="./stub/project/composer.json" tofile="./composer.json" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.name" value="${config.name}" />
                     <token key="config.description" value="${config.description}" />
-                    <token key="config.author_name" value="${config.author_name}" />
-                    <token key="config.author_email" value="${config.author_email}" />
                 </replacetokens>
             </filterchain>
         </copy>

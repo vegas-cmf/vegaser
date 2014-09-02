@@ -1,12 +1,12 @@
 {
     "name": "%%config.name%%",
     "type" : "project",
-    "description": "%%config.description%%",
+    "description": "Project based on Vegas CMF",
     "license": "MIT",
     "authors": [
         {
-            "name": "%%config.author_name%%",
-            "email": "%%config.author_email%%"
+            "name": "Vegas CMF",
+            "email": "vegas@amsterdam-standard.pl"
         }
     ],
     "repositories": [
