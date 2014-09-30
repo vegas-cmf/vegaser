@@ -42,7 +42,7 @@ class UserTask extends \Vegas\Cli\Task
     public function createAction()
     {
         $user = new \User\Models\User();
-        if ($user instanceof Vegas\Db\Decorator\ModelAbstract || $user instanceof Vegas\Db\Decorator\CollectionAbstract) {
+        if ($user instanceof \Vegas\Db\Decorator\ModelAbstract || $user instanceof \Vegas\Db\Decorator\CollectionAbstract) {
             $user->email = $this->getOption('email');
             $user->password = $this->getOption('password');
             $user->raw_password = $this->getOption('password');
