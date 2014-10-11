@@ -26,18 +26,23 @@ class MongoServiceProvider implements ServiceProviderInterface
         $di->set(self::SERVICE_NAME, function() use ($di) {
             $mongoConfig = $di->get('config')->mongo->toArray();
 
-            //obtains hostname
-            if (isset($mongoConfig['host'])) {
-                $hostname = 'mongodb://' . $mongoConfig['host'];
+            if (isset($mongoConfig['dsn'])) {
+                $hostname = $mongoConfig['dsn'];
+                unset($mongoConfig['dsn']);
             } else {
-                $hostname = 'mongodb://localhost';
+                //obtains hostname
+                if (isset($mongoConfig['host'])) {
+                    $hostname = 'mongodb://' . $mongoConfig['host'];
+                } else {
+                    $hostname = 'mongodb://localhost';
+                }
+                if (isset($mongoConfig['port'])) {
+                    $hostname .= ':' . $mongoConfig['port'];
+                }
+                //removes options that are not allowed in MongoClient constructor
+                unset($mongoConfig['host']);
+                unset($mongoConfig['port']);
             }
-            if (isset($mongoConfig['port'])) {
-                $hostname .= ':' . $mongoConfig['port'];
-            }
-            //removes options that are not allowed in MongoClient constructor
-            unset($mongoConfig['host']);
-            unset($mongoConfig['port']);
             $dbName = $mongoConfig['dbname'];
             unset($mongoConfig['dbname']);
 
