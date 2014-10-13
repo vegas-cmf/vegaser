@@ -26,8 +26,8 @@ trait BuildHelperTrait
      */
     public function copyStub()
     {
-        $source = 'phar://vegaser.phar/stub';
-        $dest = './stub';
+        $source = 'phar://vegaser.phar' . DIRECTORY_SEPARATOR . 'stub';
+        $dest = '.' . DIRECTORY_SEPARATOR . 'stub';
         shell_exec('mkdir ' . $dest);
         foreach (
             $iterator = new \RecursiveIteratorIterator(

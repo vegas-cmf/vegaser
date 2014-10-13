@@ -40,7 +40,12 @@ class BuildLibrary  implements CommandInterface
     public function run($args)
     {
         $this->copyStub();
-        file_put_contents('./build.xml', file_get_contents('phar://vegaser.phar/stub/library.build.xml'));
+        file_put_contents(
+            '.' . DIRECTORY_SEPARATOR . 'build.xml',
+            file_get_contents(
+                'phar://vegaser.phar' . DIRECTORY_SEPARATOR . 'stub' .  DIRECTORY_SEPARATOR . 'library.build.xml'
+            )
+        );
         passthru('phing');
     }
 }
