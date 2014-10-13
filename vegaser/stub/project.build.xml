@@ -7,45 +7,45 @@
     <!-- ============================================  -->
     <target name="build">
         <echo msg="Building application directory" />
-        <copy todir="./app">
-            <fileset dir="./stub/project/app">
+        <copy todir=".{{DS}}app">
+            <fileset dir=".{{DS}}stub{{DS}}project{{DS}}app">
                 <include name="**" />
             </fileset>
         </copy>
-        <copy todir="./cli">
-            <fileset dir="./stub/project/cli">
+        <copy todir=".{{DS}}cli">
+            <fileset dir=".{{DS}}stub{{DS}}project{{DS}}cli">
                 <include name="**" />
             </fileset>
         </copy>
-        <copy todir="./public">
-            <fileset dir="./stub/project/public">
+        <copy todir=".{{DS}}public">
+            <fileset dir=".{{DS}}stub{{DS}}project{{DS}}public">
                 <include name="**" />
             </fileset>
         </copy>
-        <copy file="./stub/project/.htaccess" todir="./" />
+        <copy file=".{{DS}}stub{{DS}}project{{DS}}.htaccess" todir=".{{DS}}" />
 
         <echo msg="Making tests directory" />
-        <mkdir dir="./stub/project/tests" />
+        <mkdir dir=".{{DS}}stub{{DS}}project{{DS}}tests" />
 
         <echo msg="Making cache directory" />
-        <mkdir dir="./cache" />
-        <chmod file="./cache" mode="0777" />
+        <mkdir dir=".{{DS}}cache" />
+        <chmod file=".{{DS}}cache" mode="0777" />
 
-        <touch file="./app/config/modules.php" />
-        <touch file="./app/config/services.php" />
-        <chmod file="./app/config" mode="0777" />
+        <touch file=".{{DS}}app/config{{DS}}modules.php" />
+        <touch file=".{{DS}}app{{DS}}config{{DS}}services.php" />
+        <chmod file=".{{DS}}app{{DS}}config" mode="0777" />
 
         <echo msg="Making fixtures directory" />
-        <mkdir dir="./tests/fixtures" />
+        <mkdir dir=".{{DS}}tests{{DS}}fixtures" />
 
         <echo msg="Downloading composer" />
         <exec command="curl -sS https://getcomposer.org/installer | php" />
 
-        <copy verbose="false" file="./stub/project/.gitignore" tofile="./.gitignore" overwrite="true" />
-        <copy verbose="false" file="./stub/LICENSE" tofile="./LICENSE" overwrite="true" />
-        <copy verbose="false" file="./stub/project/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
-        <copy verbose="false" file="./stub/project/tests/config.php" tofile="./tests/config.php" overwrite="true" />
-        <copy verbose="false" file="./stub/project/tests/config.php" tofile="./tests/config.sample.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}.gitignore" tofile=".{{DS}}.gitignore" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}LICENSE" tofile=".{{DS}}LICENSE" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}tests{{DS}}bootstrap.php" tofile=".{{DS}}tests{{DS}}bootstrap.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}tests{{DS}}config.php" tofile=".{{DS}}tests{{DS}}config.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}tests{{DS}}config.php" tofile=".{{DS}}tests{{DS}}config.sample.php" overwrite="true" />
 
         <input
                 message="Enter name of project (eg. vegas-demo):"
@@ -79,7 +79,7 @@
                 propertyName="config.locale" />
 
         <echo msg="Generating composer configuration" />
-        <copy verbose="false" file="./stub/project/composer.json" tofile="./composer.json" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}composer.json" tofile=".{{DS}}composer.json" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.name" value="${config.name}" />
@@ -89,7 +89,7 @@
         </copy>
 
         <echo msg="Generating phpunit configuration" />
-        <copy verbose="false" file="./stub/project/phpunit.xml.dist" tofile="./phpunit.xml.dist" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}phpunit.xml.dist" tofile=".{{DS}}phpunit.xml.dist" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.description" value="${config.description}" />
@@ -103,20 +103,20 @@
             <then>
                 <echo message="Mongo" />
                 <copy verbose="false"
-                      file="./stub/project/app/db/MongoServiceProvider.php"
-                      tofile="./app/services/MongoServiceProvider.php"
+                      file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}MongoServiceProvider.php"
+                      tofile=".{{DS}}app{{DS}}services{{DS}}MongoServiceProvider.php"
                       overwrite="true" />
                 <copy verbose="false"
-                      file="./stub/project/app/db/CollectionManagerServiceProvider.php"
-                      tofile="./app/services/CollectionManagerServiceProvider.php"
+                      file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}CollectionManagerServiceProvider.php"
+                      tofile=".{{DS}}app{{DS}}services{{DS}}CollectionManagerServiceProvider.php"
                       overwrite="true" />
                 <copy verbose="false"
-                      file="./stub/project/app/db/app/modules/Auth/models/collection/BaseUser.php"
-                      tofile="./app/modules/Auth/models/BaseUser.php"
+                      file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}collection{{DS}}BaseUser.php"
+                      tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}BaseUser.php"
                       overwrite="true" />
                 <copy verbose="false"
-                      file="./stub/project/app/db/app/modules/Auth/services/collection/Auth.php"
-                      tofile="./app/modules/Auth/services/Auth.php"
+                      file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}collection{{DS}}Auth.php"
+                      tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}Auth.php"
                       overwrite="true" />
                 <property name="config.adapter" value="" />
             </then>
@@ -125,43 +125,43 @@
                 <then>
                     <echo message="Mysql" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/MysqlServiceProvider.php"
-                          tofile="./app/services/DbServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}MysqlServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}DbServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
-                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}ModelsManagerServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
-                          tofile="./app/modules/Auth/models/BaseUser.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}model{{DS}}BaseUser.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}BaseUser.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
-                          tofile="./app/modules/Auth/services/Auth.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}model{{DS}}Auth.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}Auth.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Mysql" />
                 </then>
             </elseif>
             <elseif>
-                <equals arg1="${config.db}" arg2="3" />
+                <equals arg1="${config.db}" arg2="3" {{DS}}>
                 <then>
                     <echo message="Postgresql" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/PostgresqlServiceProvider.php"
-                          tofile="./app/services/DbServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}PostgresqlServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}DbServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
-                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}ModelsManagerServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
-                          tofile="./app/modules/Auth/models/BaseUser.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}model{{DS}}BaseUser.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}BaseUser.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
-                          tofile="./app/modules/Auth/services/Auth.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}model{{DS}}Auth.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}Auth.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Postgresql" />
                 </then>
@@ -171,20 +171,20 @@
                 <then>
                     <echo message="Sqlite" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/SqliteServiceProvider.php"
-                          tofile="./app/services/DbServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}SqliteServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}DbServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
-                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}ModelsManagerServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
-                          tofile="./app/modules/Auth/models/BaseUser.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}model{{DS}}BaseUser.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}BaseUser.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
-                          tofile="./app/modules/Auth/services/Auth.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}model{{DS}}Auth.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}Auth.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Sqlite" />
                 </then>
@@ -194,20 +194,20 @@
                 <then>
                     <echo message="Oracle" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/OracleServiceProvider.php"
-                          tofile="./app/services/DbServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}OracleServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}DbServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/ModelsManagerServiceProvider.php"
-                          tofile="./app/services/ModelsManagerServiceProvider.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}ModelsManagerServiceProvider.php"
+                          tofile=".{{DS}}app{{DS}}services{{DS}}ModelsManagerServiceProvider.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/models/model/BaseUser.php"
-                          tofile="./app/modules/Auth/models/BaseUser.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}model{{DS}}BaseUser.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}models{{DS}}BaseUser.php"
                           overwrite="true" />
                     <copy verbose="false"
-                          file="./stub/project/app/db/app/modules/Auth/services/model/Auth.php"
-                          tofile="./app/modules/Auth/services/Auth.php"
+                          file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}db{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}model{{DS}}Auth.php"
+                          tofile=".{{DS}}app{{DS}}modules{{DS}}Auth{{DS}}services{{DS}}Auth.php"
                           overwrite="true" />
                     <property name="config.adapter" value="Oracle" />
                 </then>
@@ -215,7 +215,7 @@
         </if>
 
         <echo msg="Generating config file" />
-        <copy verbose="false" file="./stub/project/app/config/config.php" tofile="./app/config/config.php" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}project{{DS}}app{{DS}}config{{DS}}config.php" tofile=".{{DS}}app{{DS}}config{{DS}}config.php" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.domain" value="${config.domain}" />
@@ -224,10 +224,10 @@
                 </replacetokens>
             </filterchain>
         </copy>
-        <copy verbose="false" file="./app/config/config.php" tofile="./app/config/config.sample.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}app{{DS}}config{{DS}}config.php" tofile=".{{DS}}app{{DS}}config{{DS}}config.sample.php" overwrite="true" />
 
         <echo msg="Generating readme file" />
-        <copy verbose="false" file="./stub/README.md" tofile="./README.md" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}README.md" tofile=".{{DS}}README.md" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.description" value="${config.description}" />
@@ -235,18 +235,18 @@
             </filterchain>
         </copy>
 
-        <mkdir dir="./vendor" mode="0777" />
-        <mkdir dir="./app/tasks" mode="0777" />
-        <touch file="./app/config/modules.php" />
-        <touch file="./app/config/services.php" />
-        <chmod file="./app/config" mode="0777" />
-        <chmod file="./app/config/modules.php" mode="0777" />
-        <chmod file="./app/config/services.php" mode="0777" />
+        <mkdir dir=".{{DS}}vendor" mode="0777" />
+        <mkdir dir=".{{DS}}app{{DS}}tasks" mode="0777" />
+        <touch file=".{{DS}}app{{DS}}config{{DS}}modules.php" />
+        <touch file=".{{DS}}app{{DS}}config{{DS}}services.php" />
+        <chmod file=".{{DS}}app{{DS}}config" mode="0777" />
+        <chmod file=".{{DS}}app{{DS}}config{{DS}}modules.php" mode="0777" />
+        <chmod file=".{{DS}}app{{DS}}config{{DS}}services.php" mode="0777" />
 
         <echo msg="Cleaning up..." />
         <exec command="rm build.xml" />
         <exec command="rm -rf stub" />
-        <exec command="rm -rf app/db" />
+        <exec command="rm -rf app{{DS}}db" />
 
         <echo msg="********************************************************" />
         <echo msg="Everything is done." />

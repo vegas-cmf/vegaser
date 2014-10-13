@@ -7,22 +7,22 @@
     <!-- ============================================  -->
     <target name="build">
         <echo msg="Making src directory" />
-        <mkdir dir="./src" />
+        <mkdir dir=".{{DS}}src" />
 
         <echo msg="Making tests directory" />
-        <mkdir dir="./tests" />
+        <mkdir dir=".{{DS}}tests" />
 
         <echo msg="Making fixtures directory" />
-        <mkdir dir="./tests/fixtures" />
+        <mkdir dir=".{{DS}}tests{{DS}}fixtures" />
 
         <echo msg="Downloading composer" />
         <exec command="curl -sS https://getcomposer.org/installer | php" />
 
-        <copy verbose="false" file="./stub/LICENSE" tofile="./LICENSE" overwrite="true" />
-        <copy verbose="false" file="./stub/library/.gitignore" tofile="./.gitignore" overwrite="true" />
-        <copy verbose="false" file="./stub/library/tests/bootstrap.php" tofile="./tests/bootstrap.php" overwrite="true" />
-        <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.php" overwrite="true" />
-        <copy verbose="false" file="./stub/library/tests/config.php" tofile="./tests/config.sample.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}LICENSE" tofile=".{{DS}}LICENSE" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}library{{DS}}.gitignore" tofile=".{{DS}}.gitignore" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}library{{DS}}tests{{DS}}bootstrap.php" tofile=".{{DS}}tests{{DS}}bootstrap.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}library{{DS}}tests{{DS}}config.php" tofile=".{{DS}}tests{{DS}}config.php" overwrite="true" />
+        <copy verbose="false" file=".{{DS}}stub{{DS}}library{{DS}}tests{{DS}}config.php" tofile=".{{DS}}tests{{DS}}config.sample.php" overwrite="true" />
 
         <input
                 message="Enter name of library (eg. vegas-cmf/assets):"
@@ -48,7 +48,7 @@
                 propertyName="config.author_email" />
 
         <echo msg="Generating composer configuration" />
-        <copy verbose="false" file="./stub/library/composer.json" tofile="./composer.json" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}library{{DS}}composer.json" tofile=".{{DS}}composer.json" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.name" value="${config.name}" />
@@ -61,7 +61,7 @@
         </copy>
 
         <echo msg="Generating phpunit configuration" />
-        <copy verbose="false" file="./stub/library/phpunit.xml.dist" tofile="./phpunit.xml.dist" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}library{{DS}}phpunit.xml.dist" tofile=".{{DS}}phpunit.xml.dist" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.description" value="${config.description}" />
@@ -70,7 +70,7 @@
         </copy>
 
         <echo msg="Generating readme file" />
-        <copy verbose="false" file="./stub/README.md" tofile="./README.md" overwrite="true">
+        <copy verbose="false" file=".{{DS}}stub{{DS}}README.md" tofile="./README.md" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="%%" endtoken="%%">
                     <token key="config.description" value="${config.description}" />

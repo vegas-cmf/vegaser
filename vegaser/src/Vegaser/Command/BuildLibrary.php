@@ -42,8 +42,12 @@ class BuildLibrary  implements CommandInterface
         $this->copyStub();
         file_put_contents(
             '.' . DIRECTORY_SEPARATOR . 'build.xml',
-            file_get_contents(
-                'phar://vegaser.phar' . DIRECTORY_SEPARATOR . 'stub' .  DIRECTORY_SEPARATOR . 'library.build.xml'
+            str_replace(
+                '{{DS}}',
+                DIRECTORY_SEPARATOR,
+                file_get_contents(
+                    'phar://vegaser.phar' . DIRECTORY_SEPARATOR . 'stub' .  DIRECTORY_SEPARATOR . 'library.build.xml'
+                )
             )
         );
         passthru('phing');
