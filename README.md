@@ -59,7 +59,13 @@ During building the project enter the name of project, eg. vegas-test. You can a
 
 Note. Before you run **build-project** command check your directory permissions.
 
-When the **vegaser** command will be ended successfully, then you can see starter project by starting local php server:
+When the **vegaser** command will be ended successfully, you need to run **composer** from project root directory and install
+latest vendors:
+```
+php composer.phar install
+```
+
+Then you can see starter project by starting local php server:
 ```
 php -S 0.0.0.0:8080 -t public/ public/index.php
 ```
