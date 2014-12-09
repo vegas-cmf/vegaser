@@ -10,8 +10,7 @@
  * file that was distributed with this source code.
  */
  
-namespace User\models;
-
+namespace User\Models;
 
 use Auth\Models\BaseUser;
 
