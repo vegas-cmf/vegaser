@@ -25,16 +25,16 @@ class DbServiceProvider implements ServiceProviderInterface
     {
         $di->set(self::SERVICE_NAME, function () use ($di) {
             $config = $di->get('config');
-            return new Phalcon\Db\Adapter\Pdo\Mysql(array(
+            return new Phalcon\Db\Adapter\Pdo\Mysql([
                 "host" => $config->db->hostname,
                 "dbname" => $config->db->dbname,
                 "port" => $config->db->port,
                 "username" => $config->db->username,
                 "password" => $config->db->password,
-                "options" => array(
+                "options" => [
                     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
-                )
-            ));
+                ]
+            ]);
         }, true);
     }
 
@@ -43,8 +43,8 @@ class DbServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array(
+        return [
             ModelsManagerServiceProvider::SERVICE_NAME
-        );
+        ];
     }
 } 

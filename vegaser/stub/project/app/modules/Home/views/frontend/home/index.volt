@@ -11,9 +11,3 @@
     </p>
     {% endif %}
 </div>
-
-<div class="mastfoot">
-    <div class="inner">
-        <p>Thanks for using <a href="https://github.com/vegas-cmf">Vegas CMF</a>.</p>
-    </div>
-</div>

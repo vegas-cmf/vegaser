@@ -34,8 +34,8 @@ class SessionManagerServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array(
+        return [
             SessionServiceProvider::SERVICE_NAME
-        );
+        ];
     }
 } 

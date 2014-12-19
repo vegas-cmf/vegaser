@@ -23,11 +23,11 @@ class FlashServiceProvider implements ServiceProviderInterface
     public function register(DiInterface $di)
     {
         $di->set(self::SERVICE_NAME, function() {
-            return new \Phalcon\Flash\Session(array(
+            return new \Phalcon\Flash\Session([
                 'error' => 'alert alert-danger',
                 'success' => 'alert alert-success',
                 'notice' => 'alert alert-info',
-            ));
+            ]);
         });
     }
 
@@ -36,6 +36,6 @@ class FlashServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array();
+        return [];
     }
 }

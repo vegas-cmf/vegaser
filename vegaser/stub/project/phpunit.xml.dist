@@ -21,7 +21,7 @@
         verbose="true"
         bootstrap="./tests/bootstrap.php">
     <testsuites>
-        <testsuite name="%library.description% Test Suite">
+        <testsuite name="Vegas CMF Project Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

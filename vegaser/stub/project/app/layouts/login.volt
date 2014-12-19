@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
 
-    <title>Example login area</title>
+    <title>Vegas CMF - login area</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,5 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

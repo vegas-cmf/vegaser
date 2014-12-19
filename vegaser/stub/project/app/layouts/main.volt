@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Amsterdam Standard Vegas Team">
+    <meta name="author" content="Vegas CMF">
 
-    <title>Vegas CMS</title>
+    <title>Vegas CMF</title>
+
+    <link rel="icon" href="logo.png" />
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,10 +36,10 @@
         <div class="cover-container">
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">Vegas CMF</h3>
+                    <h3 class="masthead-brand"><a href="http://cmf.vegas">Vegas CMF</a></h3>
                     <ul class="nav masthead-nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/private">Private</a></li>
+                        <li><a href="{{ url.get(['for':'dashboard']) }}">Dashboard</a></li>
                         <li><a href="http://vegas-cmf.github.io/1.0/guide.html">Features</a></li>
                         <li><a href="mailto:vegas@amsterdam-standard.pl">Contact</a></li>
                     </ul>
@@ -46,6 +48,12 @@
 
 
             {{ content() }}
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Thanks for using <a href="https://github.com/vegas-cmf">Vegas CMF</a>.</p>
+                </div>
+            </div>
 
         </div>
 
@@ -57,7 +65,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="http://getbootstrap.com/dist/css/bootstrap.min.js"></script>
 <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 </body>
 </html>

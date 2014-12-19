@@ -56,8 +56,8 @@ class MongoServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array(
+        return [
             CollectionManagerServiceProvider::SERVICE_NAME
-        );
+        ];
     }
 } 

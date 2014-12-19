@@ -32,6 +32,6 @@ class ModelsManagerServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array();
+        return [];
     }
 } 

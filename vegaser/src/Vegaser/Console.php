@@ -45,7 +45,7 @@ class Console
         if (count($this->arguments) > 1) {
             $this->arguments['args'] = array_slice($arguments, 1);
         } else {
-            $this->arguments['args'] = array();
+            $this->arguments['args'] = [];
         }
     }
 

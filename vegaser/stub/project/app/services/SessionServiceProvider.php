@@ -38,6 +38,6 @@ class SessionServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array();
+        return [];
     }
 } 

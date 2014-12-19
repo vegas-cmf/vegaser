@@ -1,13 +1,13 @@
 <?php
-return array(
-    'private' => array(
-        'route' => '/private',
-        'paths' => array(
+return [
+    'dashboard' => [
+        'route' => '/dashboard',
+        'paths' => [
             'module'    =>  'Home',
-            'controller' => 'Frontend\Private',
+            'controller' => 'Frontend\Dashboard',
             'action' => 'index',
 
             'auth'  =>  'auth'
-        )
-    )
-);
+        ]
+    ]
+];

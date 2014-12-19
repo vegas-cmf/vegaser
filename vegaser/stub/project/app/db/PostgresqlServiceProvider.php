@@ -25,13 +25,13 @@ class DbServiceProvider implements ServiceProviderInterface
     {
         $di->set(self::SERVICE_NAME, function () use ($di) {
             $config = $di->get('config');
-            return new Phalcon\Db\Adapter\Pdo\Postgresql(array(
+            return new Phalcon\Db\Adapter\Pdo\Postgresql([
                 "host" => $config->db->host,
                 "dbname" => $config->db->dbname,
                 "port" => $config->db->port,
                 "username" => $config->db->username,
                 "password" => $config->db->password
-            ));
+            ]);
         }, true);
     }
 
@@ -40,8 +40,8 @@ class DbServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array(
+        return [
             ModelsManagerServiceProvider::SERVICE_NAME
-        );
+        ];
     }
 } 

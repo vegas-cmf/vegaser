@@ -18,21 +18,21 @@ class BaseUser implements GenericUserInterface
 
     public function getIdentity()
     {
-        return 'user@vegasdemo.com';
+        return 'foo@vegasdemo.com';
     }
 
     public function getCredential()
     {
-        return \Phalcon\DI::getDefault()->get('userPasswordManager')->encryptPassword('p@$$w0rD');
+        return \Phalcon\DI::getDefault()->get('userPasswordManager')->encryptPassword('password');
     }
 
     public function getAttributes()
     {
-        $userData = array(
+        $userData = [
             'email' => $this->getIdentity(),
             'name' => 'Vegas User',
             'id' => 1
-        );
+        ];
 
         return $userData;
     }

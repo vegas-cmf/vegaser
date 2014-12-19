@@ -36,8 +36,8 @@ class DbServiceProvider implements ServiceProviderInterface
      */
     public function getDependencies()
     {
-        return array(
+        return [
             ModelsManagerServiceProvider::SERVICE_NAME
-        );
+        ];
     }
 } 

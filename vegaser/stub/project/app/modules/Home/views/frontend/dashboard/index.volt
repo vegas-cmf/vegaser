@@ -1,5 +1,5 @@
 <div class="inner cover">
-    <h1 class="cover-heading">Some private stuff</h1>
+    <h1 class="cover-heading">Your dashboard</h1>
 
     {% if identity is defined %}
     <p>

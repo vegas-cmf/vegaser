@@ -18,7 +18,7 @@ use Vegas\Mvc\Controller\ControllerAbstract;
  * Class PrivateController
  * @package Home\Controllers\Frontend
  */
-class PrivateController extends ControllerAbstract
+class DashboardController extends ControllerAbstract
 {
     public function indexAction()
     {

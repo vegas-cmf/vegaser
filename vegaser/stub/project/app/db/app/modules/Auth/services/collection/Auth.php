@@ -20,7 +20,7 @@ class Auth implements \Phalcon\DI\InjectionAwareInterface
 
     public function login($email, $password) 
     {
-        $user = User::findFirst(array(array('email' => $email)));
+        $user = User::findFirst([['email' => $email]]);
         if (!$user) {
             throw new \Vegas\Security\Authentication\Exception\InvalidCredentialException();
         }
