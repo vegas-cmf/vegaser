@@ -18,7 +18,7 @@ use Auth\Models\BaseUser;
  * @ACL(name='mvc:auth:Frontend\Auth', description='Authentication')
  * @package Auth\Controllers\Frontend
  */
-class AuthController extends \Vegas\Mvc\Controller\ControllerAbstract
+class AuthController extends \Vegas\Mvc\ControllerAbstract
 {
 
     /**

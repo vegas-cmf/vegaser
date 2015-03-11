@@ -18,7 +18,7 @@ class AppManager
  ## ##  ##     ##   ## ##   ## ##   ## ##      ##   ##
   ###   ####### #####  ##   ##  #####  ####### ##   ##
 
-Vegaser version 1.0 (Built 2015-03-11)
+Vegaser version 1.1 (Built 2015-03-11)
 TEXT;
 
     private static $help = <<<TEXT

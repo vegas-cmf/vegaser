@@ -1,7 +1,7 @@
 {
     "name": "%%config.name%%",
     "type" : "project",
-    "description": "Project based on Vegas CMF 1.0",
+    "description": "Project based on Vegas CMF 1.1",
     "license": "MIT",
     "authors": [
         {
@@ -9,20 +9,15 @@
             "email": "vegas@amsterdam-standard.pl"
         }
     ],
-    "repositories": [
-        {
-            "type" : "git",
-            "url" : "https://github.com/phalcon/phalcon-devtools.git"
-        }
-    ],
+    "repositories": [],
     "require": {
         "php": ">=5.4",
         "ext-phalcon": ">=1.3.0,<2",
         "phalcon/devtools": "1.3.x-dev",
         "phalcon/incubator": "1.3.*",
-        "vegas-cmf/core" : "1.0.*",
-        "vegas-cmf/session" : "1.0.*",
-        "vegas-cmf/auth" : "1.0.*"
+        "vegas-cmf/core" : "1.1.*",
+        "vegas-cmf/session" : "1.1.*",
+        "vegas-cmf/auth" : "1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "4.0.*"
