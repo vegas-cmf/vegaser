@@ -2,7 +2,7 @@
 /**
  * This file is part of Vegas package
  *
- * @author Slawomir Zytko <slawomir.zytko@gmail.com>
+ * @author Slawomir Zytko <slawek@amsterdam-standard.pl>
  * @copyright Amsterdam Standard Sp. Z o.o.
  * @homepage http://vegas-cmf.github.io
  *
@@ -18,7 +18,7 @@ use Auth\Models\BaseUser;
  * @ACL(name='mvc:auth:Frontend\Auth', description='Authentication')
  * @package Auth\Controllers\Frontend
  */
-class AuthController extends \Vegas\Mvc\Controller\ControllerAbstract
+class AuthController extends \Vegas\Mvc\ControllerAbstract
 {
 
     /**

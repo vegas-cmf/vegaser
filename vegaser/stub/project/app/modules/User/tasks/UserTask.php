@@ -2,7 +2,7 @@
 /**
  * This file is part of Vegas package
  *
- * @author Slawomir Zytko <slawomir.zytko@gmail.com>
+ * @author Slawomir Zytko <slawek@amsterdam-standard.pl>
  * @copyright Amsterdam Standard Sp. Z o.o.
  * @homepage http://vegas-cmf.github.io
  *
@@ -12,7 +12,7 @@
 
 namespace User\Tasks;
 
-class UserTask extends \Vegas\Cli\Task
+class UserTask extends \Vegas\Cli\TaskAbstract
 {
 
     /**
@@ -20,7 +20,7 @@ class UserTask extends \Vegas\Cli\Task
      *
      * @return mixed
      */
-    public function setOptions()
+    public function setupOptions()
     {
         $action = new \Vegas\Cli\Task\Action('create', 'Create user account');
 
@@ -55,11 +55,11 @@ class UserTask extends \Vegas\Cli\Task
             }
 
             $this->putSuccess('User created');
-            $this->pubObject($user->toArray());
+            $this->putObject($user->toArray());
 
             $this->putText('Done.');
         } else {
-            $this->putWarn('Database is not being used in project');
+            $this->putWarning('Database is not being used in project');
         }
     }
 }
