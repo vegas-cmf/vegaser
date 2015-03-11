@@ -45,7 +45,7 @@ mkdir vegas-test
 cd vegas-test
 ```
 
-Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar)
+Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/1.0/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/1.0/build/vegaser.phar)
 ```
 wget https://github.com/vegas-cmf/vegaser/raw/1.0/build/vegaser.phar --no-cache
 ```
@@ -81,7 +81,7 @@ mkdir vegas-test
 cd vegas-test
 ```
 
-Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/master/build/vegaser.phar)
+Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/1.0/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/1.0/build/vegaser.phar)
 ```
 wget https://github.com/vegas-cmf/vegaser/raw/1.0/build/vegaser.phar --no-cache
 ```
