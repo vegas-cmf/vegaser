@@ -2,7 +2,7 @@
 //script for building .phar file
 //php build.php
 
-$srcRoot = "." . DIRECTORY_SEPARATOR . "vegaser" . DIRECTORY_SEPARATOR . "src";
+$srcRoot = "."  . DIRECTORY_SEPARATOR . "vegaser" . DIRECTORY_SEPARATOR . "src";
 $buildRoot = "." . DIRECTORY_SEPARATOR . "build";
 
 if (file_exists($buildRoot . DIRECTORY_SEPARATOR . "vegaser.phar")) {

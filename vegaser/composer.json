@@ -1,0 +1,22 @@
+{
+    "name": "vegaser",
+    "description": "Vegaser - Vegas CMF Builder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amsterdam Standard Vegas Team",
+            "email": "vegas@amsterdam-standard.pl"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor/"
+    },
+    "homepage": "http://cmf.vegas/",
+    "repositories": [],
+    "require": {
+        "codegyre/robo": "v0.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    }
+}
