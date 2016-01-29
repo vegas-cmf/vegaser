@@ -28,4 +28,22 @@ class Tasks extends \Robo\Tasks
         return Config::getOutput();
     }
 
+    protected function askWithOptions($question, array $options, $default)
+    {
+        foreach ($options as $key => $option) {
+
+            $question .= "\n\t$key. $option";
+        }
+        $question .= "\n";
+
+        $answer = $this->askDefault($question, $default);
+
+        if (!isset($options[$answer])) {
+            $this->say('Invalid option selected. Default option were choose.');
+            return $default;
+        }
+
+        return $options[$answer];
+    }
+
 }

@@ -27,8 +27,6 @@ Usage:
 
 Available commands:
     build-project       Create new project using default Vegas structure
-    build-vegas         Create new vegas project using default Vegas structure
-    build-library       Create structure for Vegas library
     help                Display help for a command
 
 TEXT;

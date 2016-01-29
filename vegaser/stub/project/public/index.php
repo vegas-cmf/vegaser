@@ -1,19 +1,15 @@
 <?php
+
+define('APP_ROOT', dirname(__DIR__));
+require_once APP_ROOT . '/vendor/autoload.php';
+
 error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
-define('APP_ROOT', dirname(dirname(__FILE__)));
+$config = new \Phalcon\Config(require_once APP_ROOT . '/app/config/config.php');
+$di = new \Phalcon\Di\FactoryDefault();
+$app = new \Vegas\Mvc\Application($di, $config);
+$app->setApplicationDirectory(APP_ROOT);
+$app->setDefaultModule($config->application->defaultModule);
 
-try {
-    require APP_ROOT . '/vendor/autoload.php';
-    require APP_ROOT . '/app/Bootstrap.php';
-
-    //ensure that you copied config.sample.php to config.php
-    $config = require APP_ROOT . '/app/config/config.php';
-
-    $bootstrap = new \Bootstrap(new \Phalcon\Config($config));
-
-    echo $bootstrap->setup()->run();
-} catch (\Exception $ex) {
-    echo $ex->getMessage();
-    echo $ex->getTraceAsString();
-}
+$app->handle();

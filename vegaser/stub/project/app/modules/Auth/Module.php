@@ -1,10 +1,38 @@
 <?php
+/**
+ * This file is part of Vegas package
+ *
+ * @author Slawomir Zytko <slawek@amsterdam-standard.pl>
+ * @company Amsterdam Standard Sp. z o.o.
+ * @homepage http://cmf.vegas
+ */
+
 namespace Auth;
 
-class Module extends \Vegas\Mvc\ModuleAbstract
+use Phalcon\Loader;
+use Phalcon\Mvc\Dispatcher;
+use Phalcon\Mvc\View;
+
+class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 {
-    public function __construct() {
-        $this->namespace = __NAMESPACE__;
-        $this->dir = __DIR__;
+
+
+    /**
+     * Registers an autoloader related to the module
+     *
+     * @param mixed $dependencyInjector
+     */
+    public function registerAutoloaders(\Phalcon\DiInterface $dependencyInjector = null)
+    {
+
+    }
+
+    /**
+     * Registers services related to the module
+     *
+     * @param mixed $dependencyInjector
+     */
+    public function registerServices(\Phalcon\DiInterface $dependencyInjector)
+    {
     }
 }

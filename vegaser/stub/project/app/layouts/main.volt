@@ -1,71 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="description" content="">
-    <meta name="author" content="Vegas CMF">
+    <meta name="author" content="">
 
-    <title>Vegas CMF</title>
-
-    <link rel="icon" href="logo.png" />
+    <title>Vegas CMF 2.0 Demo Application</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="http://getbootstrap.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
 
-<div class="site-wrapper">
+<div class="container">
 
-    <div class="site-wrapper-inner">
+    {{ partial('layouts/partials/header') }}
 
-        <div class="cover-container">
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand"><a href="http://cmf.vegas">Vegas CMF</a></h3>
-                    <ul class="nav masthead-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="{{ url.get(['for':'dashboard']) }}">Dashboard</a></li>
-                        <li><a href="http://vegas-cmf.github.io/1.0/guide.html">Features</a></li>
-                        <li><a href="mailto:vegas@amsterdam-standard.pl">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
+    {{ content() }}
+
+    {{ partial('layouts/partials/footer') }}
+
+</div> <!-- /container -->
 
 
-            {{ content() }}
-
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Thanks for using <a href="https://github.com/vegas-cmf">Vegas CMF</a>.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://getbootstrap.com/dist/css/bootstrap.min.js"></script>
-<script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

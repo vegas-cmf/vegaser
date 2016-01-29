@@ -19,10 +19,19 @@
 
         strict="false"
         verbose="true"
-        bootstrap="./tests/bootstrap.php">
+        bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Vegas CMF Project Test Suite">
-            <directory>tests</directory>
+        <testsuite name="%%project_description%%">
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
