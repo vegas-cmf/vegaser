@@ -40,9 +40,6 @@ class Volt implements InitializerInterface
                 $volt = new VoltEngine($this, $di);
                 $volt->setOptions($viewConfig['engines']['volt']);
 
-                if($config->application->environment == Env::DEVELOPMENT) {
-                    array_map('unlink', glob($viewConfig['cacheDir'] . '*.php'));
-                }
 
                 $volt->getCompiler()->addFilter('toString', (new ToStringFilter())->getFilter());
                 return $volt;

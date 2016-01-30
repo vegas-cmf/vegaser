@@ -15,6 +15,22 @@
     "repositories": [
         {
             "type": "git",
+            "url": "https://github.com/vegas-cmf/mvc.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/common.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/dao.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/odm.git"
+        },
+        {
+            "type": "git",
             "url": "https://github.com/vegas-cmf/auth.git"
         }
     ],
