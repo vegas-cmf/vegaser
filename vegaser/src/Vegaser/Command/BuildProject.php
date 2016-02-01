@@ -23,7 +23,6 @@ use Vegaser\Tasks;
  */
 class BuildProject extends Tasks implements CommandInterface
 {
-
     /**
      * @return string
      */
@@ -37,8 +36,6 @@ class BuildProject extends Tasks implements CommandInterface
      */
     public function run($args)
     {
-        $this->currentDir = exec('pwd');
-
         if(file_exists($this->currentDir . '/app')) {
             $this->yell('Project already exists');
             exit;

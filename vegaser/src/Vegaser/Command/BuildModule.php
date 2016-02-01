@@ -22,8 +22,6 @@ use Vegaser\Tasks;
  */
 class BuildModule extends Tasks implements CommandInterface
 {
-    private $currentDir;
-
     /**
      * @return string
      */
@@ -37,7 +35,6 @@ class BuildModule extends Tasks implements CommandInterface
      */
     public function run($args)
     {
-        $this->currentDir = exec('pwd');
         $moduleName = $this->askDefault('Enter name of project (eg. test):', 'Test');
         $moduleName = ucfirst($moduleName);
 
@@ -82,7 +79,7 @@ class BuildModule extends Tasks implements CommandInterface
         }
     }
 
-    protected function checkDirectories($moduleName)
+    protected function checkDirectories()
     {
         $configData = Config::get();
 
@@ -95,7 +92,7 @@ class BuildModule extends Tasks implements CommandInterface
         }
 
         if (file_exists($this->currentDir . '/app/modules/' . $configData['module_name'])) {
-            $this->say("Module $moduleName exists");
+            $this->say('Module ' . $configData['module_name'] . ' exists');
             exit;
         }
     }

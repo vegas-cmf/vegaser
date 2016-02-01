@@ -18,7 +18,7 @@ use Vegaser\Task\File\Write;
 class Tasks extends \Robo\Tasks
 {
     /**
-     * @var
+     * @var string $currentDir
      */
     protected $currentDir;
 
@@ -65,7 +65,6 @@ class Tasks extends \Robo\Tasks
 
         return $options[$answer];
     }
-
 
     /**
      * @param $file

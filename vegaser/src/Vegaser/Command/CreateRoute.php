@@ -29,18 +29,28 @@ use Vegaser\Tasks;
 class CreateRoute extends Tasks implements CommandInterface
 {
     /**
-     * @var
+     * @var string $httpMethod
      */
-    protected $currentDir;
-
     protected $httpMethod;
 
+    /**
+     * @var string $url
+     */
     protected $url;
 
+    /**
+     * @var string $path
+     */
     protected $path;
 
+    /**
+     * @var string $routePath
+     */
     protected $routePath;
 
+    /**
+     * @var string $controllerPath
+     */
     protected $controllerPath;
 
     /**
@@ -98,7 +108,7 @@ class CreateRoute extends Tasks implements CommandInterface
         }
     }
 
-    private function addRoute()
+    protected function addRoute()
     {
         if (!file_exists($this->routePath)) {
             $this->taskFileSystemStack()->touch($this->routePath)->run();
@@ -109,7 +119,7 @@ class CreateRoute extends Tasks implements CommandInterface
             ->textFromFile('phar://vegaser.phar/stub/route/route')->append()->run();
     }
 
-    private function addControllerAction()
+    protected function addControllerAction()
     {
         if (!file_exists($this->controllerPath)) {
             $this->taskFileSystemStack()->touch($this->controllerPath)->run();
