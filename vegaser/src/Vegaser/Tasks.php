@@ -13,21 +13,41 @@
 namespace Vegaser;
 
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Vegaser\Task\File\Write;
 
 class Tasks extends \Robo\Tasks
 {
+    /**
+     * @var
+     */
+    protected $currentDir;
+
+    /**
+     * Tasks constructor.
+     */
     public function __construct()
     {
         $console = new ConsoleOutput();
 
         Config::setOutput($console);
+
+        $this->currentDir = exec('pwd');
     }
 
+    /**
+     * @return mixed
+     */
     protected function getOutput()
     {
         return Config::getOutput();
     }
 
+    /**
+     * @param $question
+     * @param array $options
+     * @param $default
+     * @return mixed
+     */
     protected function askWithOptions($question, array $options, $default)
     {
         foreach ($options as $key => $option) {
@@ -46,4 +66,13 @@ class Tasks extends \Robo\Tasks
         return $options[$answer];
     }
 
+
+    /**
+     * @param $file
+     * @return Write
+     */
+    protected function taskWriteToFile($file)
+    {
+        return new Write($file);
+    }
 }

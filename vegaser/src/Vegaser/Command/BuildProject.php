@@ -23,10 +23,6 @@ use Vegaser\Tasks;
  */
 class BuildProject extends Tasks implements CommandInterface
 {
-    /**
-     * @var
-     */
-    protected $currentDir;
 
     /**
      * @return string
