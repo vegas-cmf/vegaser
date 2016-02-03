@@ -66,21 +66,12 @@ class CreateRoute extends Tasks implements CommandInterface
      */
     public function run($args)
     {
-        if (count($args) < 2) {
-            $this->say('Missing parameters');
-            exit;
-        }
-
-        $this->path = $args[0];
-        $this->url = $args[1];
-
-        if(isset($args[2])) {
-            $this->httpMethod = $args[2];
-        }
+        $this->path = $this->ask('Enter path for route (eg. Home\Index\index):');
+        $this->url = $this->ask('Enter route (eg. /test):');
+        $this->httpMethod = $this->ask('Enter http method (optional)');
 
         $path = $this->getPath();
-
-        $this->controllerPath = $this->currentDir . '/app/modules/' . $path['module'] . '/Controller/' . $path['controller'] . 'Controller.php';
+        $this->controllerPath = $this->currentDir . '/app/modules/' . $path['module'] . '/Controller/' . str_replace('\\', '/', $path['controller']) . 'Controller.php';
         $this->routePath = $this->currentDir . '/app/modules/' . $path['module'] . '/Config/routes.php';
 
         if (!$this->validateArguments()) {
@@ -106,6 +97,8 @@ class CreateRoute extends Tasks implements CommandInterface
             $this->taskReplaceInFile($this->controllerPath)->from('%%' . $key . '%%')->to($value)->run();
             $this->taskReplaceInFile($this->routePath)->from('%%' . $key . '%%')->to($value)->run();
         }
+
+        $this->say('Route has been created');
     }
 
     protected function addRoute()
@@ -135,12 +128,17 @@ class CreateRoute extends Tasks implements CommandInterface
         $controllerPath = Config::get()['controller_path'];
 
         $slashPosition = strrpos($controllerPath, '\\');
-        $controllerNamespace = substr($controllerPath, 0, $slashPosition);
-        if (!empty($controllerNamespace)) {
-            $controllerNamespace = '\\' . $controllerNamespace;
-        }
+        if ($slashPosition) {
+            $controllerNamespace = substr($controllerPath, 0, $slashPosition);
+            if (!empty($controllerNamespace)) {
+                $controllerNamespace = '\\' . $controllerNamespace;
+            }
 
-        $controllerName = substr($controllerPath, $slashPosition);
+            $controllerName = substr($controllerPath, $slashPosition + 1);
+        } else {
+            $controllerNamespace = '';
+            $controllerName = $controllerPath;
+        }
 
         Config::set('controller_name', $controllerName);
         Config::set('controller_namespace', $controllerNamespace);
@@ -149,9 +147,13 @@ class CreateRoute extends Tasks implements CommandInterface
     /**
      * @return bool
      */
-    public function validateArguments()
+    protected function validateArguments()
     {
-        if (!isset($this->httpMethod) || in_array(strtoupper($this->httpMethod), ['POST', 'GET', 'PUT'])) {
+        if (!isset($this->httpMethod) || in_array(strtoupper($this->httpMethod), ['POST', 'GET', 'PUT', 'DELETE'])) {
+            return true;
+        }
+
+        if(substr_count($this->path, '\\') > 2) {
             return true;
         }
 

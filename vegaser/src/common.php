@@ -27,6 +27,9 @@ Usage:
 
 Available commands:
     build-project       Create new project using default Vegas structure
+    build-library       Create new library
+    build-module        Create new module
+    create-route        Create route path and add action to controller
     help                Display help for a command
 
 TEXT;
