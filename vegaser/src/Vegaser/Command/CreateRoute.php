@@ -20,10 +20,6 @@ use Vegaser\Tasks;
 /**
  * Class CreateRoute
  *
- * Route create usage:
- *
- * - php vegaser.phar create-route path route [ http-method ]
- *
  * @package Vegaser\Command
  */
 class CreateRoute extends Tasks implements CommandInterface
