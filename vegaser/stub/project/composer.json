@@ -1,23 +1,49 @@
 {
-    "name": "%%config.name%%",
-    "type" : "project",
-    "description": "Project based on Vegas CMF 1.1",
+    "name": "%%project_name%%",
+    "description": "%%project_description%%",
     "license": "MIT",
     "authors": [
         {
-            "name": "Vegas CMF",
+            "name": "Amsterdam Standard Vegas Team",
             "email": "vegas@amsterdam-standard.pl"
         }
     ],
-    "repositories": [],
+    "config": {
+        "vendor-dir": "vendor/"
+    },
+    "homepage": "http://%%project_domain%%/",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/mvc.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/common.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/dao.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/odm.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/vegas-cmf/auth.git"
+        }
+    ],
     "require": {
         "php": ">=5.4",
-        "ext-phalcon": ">=1.3.0,<2",
-        "phalcon/devtools": "1.3.x-dev",
-        "phalcon/incubator": "1.3.*",
-        "vegas-cmf/core" : "1.1.*",
-        "vegas-cmf/session" : "1.1.*",
-        "vegas-cmf/auth" : "1.*"
+        "ext-phalcon": ">=2.0",
+        "phalcon/devtools": ">=2.0",
+        "phalcon/incubator": ">=2.0",
+        "vegas-cmf/mvc" : "dev-master",
+        "vegas-cmf/dao" : "2.0.x-dev",
+        "vegas-cmf/odm" : "dev-master",
+        "vegas-cmf/common" : "dev-master",
+        "vegas-cmf/auth" : "2.0.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "4.0.*"

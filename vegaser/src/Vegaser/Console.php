@@ -42,7 +42,8 @@ class Console
     {
         //2nd argument is a name of command
         $this->arguments['name'] = $arguments[0];
-        if (count($this->arguments) > 1) {
+
+        if (count($arguments) > 1) {
             $this->arguments['args'] = array_slice($arguments, 1);
         } else {
             $this->arguments['args'] = [];

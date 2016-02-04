@@ -12,7 +12,8 @@
 
 namespace Vegaser\Command;
 
-use Vegaser\BuildHelperTrait;
+use Vegaser\Config;
+use Vegaser\Tasks;
 use Vegaser\CommandInterface;
 
 /**
@@ -22,10 +23,8 @@ use Vegaser\CommandInterface;
  *
  * @package Vegaser\Command
  */
-class BuildLibrary  implements CommandInterface
+class BuildLibrary extends Tasks implements CommandInterface
 {
-    use BuildHelperTrait;
-
     /**
      * @return string
      */
@@ -39,18 +38,23 @@ class BuildLibrary  implements CommandInterface
      */
     public function run($args)
     {
-        $this->copyStub();
-        file_put_contents(
-            '.' . DIRECTORY_SEPARATOR . 'build.xml',
-            str_replace(
-                '{{DS}}',
-                DIRECTORY_SEPARATOR,
-                file_get_contents(
-                    'phar://vegaser.phar' . DIRECTORY_SEPARATOR . 'stub' .  DIRECTORY_SEPARATOR . 'library.build.xml'
-                )
-            )
-        );
-        passthru('phing');
+        $name = $this->askDefault('Enter library name', 'test');
+        $namespace = $this->askDefault('Enter library namespace', 'Test');
+        $description = $this->ask('Enter library description');
+        $author_name = $this->ask('Enter author of package');
+        $author_email = $this->ask('Enter author email');
+
+        Config::set('name', $name);
+        Config::set('namespace', $namespace);
+        Config::set('description', $description);
+        Config::set('author_name', $author_name);
+        Config::set('author_email', $author_email);
+
+        $this->_copyDir('phar://vegaser.phar/stub/library', $this->currentDir);
+
+        foreach (Config::get() as $key => $value) {
+            $this->taskReplaceInFile($this->currentDir . '/composer.json')->from('%%' . $key . '%%')->to($value)->run();
+        }
     }
 }
  

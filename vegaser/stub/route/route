@@ -1,0 +1,6 @@
+
+$router->add%%http_method%%('%%url%%', [
+    'module' => '%%module_name%%',
+    'controller' => '%%controller_path%%',
+    'action' => '%%action_name%%'
+]);

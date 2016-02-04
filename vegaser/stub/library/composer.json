@@ -1,28 +1,27 @@
 {
-    "name": "%%config.name%%",
+    "name": "%%name%%",
     "type": "library",
-    "description": "%%config.description%%",
+    "description": "%%description%%",
     "license": "MIT",
     "authors": [
         {
-            "name": "%%config.author_name%%",
-            "email": "%%config.author_email%%"
+            "name": "%%author_name%%",
+            "email": "%%author_email%%"
         }
     ],
     "repositories": [],
     "require": {
         "php": ">=5.4",
-        "ext-phalcon": ">=1.3.0,<2",
-        "phalcon/devtools": "1.3.x-dev",
-        "phalcon/incubator": "1.3.*",
-        "vegas-cmf/core" : "1.1.*"
+        "ext-phalcon": ">=2.0",
+        "phalcon/devtools": ">=2.0",
+        "phalcon/incubator": ">=2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.0.*"
     },
     "autoload": {
         "psr-4": {
-            "%%config.namespace%%": "src/",
+            "%%namespace%%": "src/",
             "Vegas\\Tests\\": "tests/"
         }
     }
