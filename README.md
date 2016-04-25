@@ -10,8 +10,8 @@ Vegas CMF 2.0 Project builder
 
 Requirements
 ------------
-1. PHP >= 5.4
-We highly recommend using PHP at least in version 5.4
+1. PHP >= 5.5
+We highly recommend using PHP at least in version 5.5
 
 2. Phalcon extension
 The **Vegas CMF** based on the **Phalcon** framework, which works as php extension.
@@ -30,7 +30,7 @@ cd vegas-test
 
 Download **vegaser** tool using the following link: [https://github.com/vegas-cmf/vegaser/raw/2.0/build/vegaser.phar](https://github.com/vegas-cmf/vegaser/raw/2.0/build/vegaser.phar)
 ```
-wget https://github.com/vegas-cmf/vegaser/raw/2.0.build/vegaser.phar --no-cache
+wget https://github.com/vegas-cmf/vegaser/raw/2.0/build/vegaser.phar --no-cache
 ```
 
 Use the following command for start creating new project based on **Vegas CMF**:
