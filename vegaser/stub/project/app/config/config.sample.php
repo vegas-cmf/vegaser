@@ -15,6 +15,7 @@ return [
             'db' => ''
         ],
         'autoload' => [
+            'App\Filter' => APP_ROOT . '/app/filters',
             'App\Initializer' => APP_ROOT . '/app/initializers',
             'App\Shared' => APP_ROOT . '/app/shared',
             'App\Service' => APP_ROOT . '/app/services',
