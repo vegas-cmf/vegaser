@@ -52,3 +52,7 @@ Then you can see starter project by starting local php server:
 ```
 php -S 0.0.0.0:8080 -t public/ public/index.php
 ```
+
+Development note
+-----------------
+Please, be aware that for correct phar build, composer vendor has to be in ```/vegaser``` directory.
